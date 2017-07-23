@@ -13,7 +13,7 @@ def register_list_view(cls):
     value = "%s.%s" % (cls.__module__, cls.__name__)
     name = " ".join(re.findall('[A-Z][^A-Z]*', cls.__name__))
     list_view_registry.append((value, name))
-    
+
     return cls
 
 

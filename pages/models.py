@@ -15,6 +15,8 @@ from .decorators import get_registered_list_views
 
 from modulestatus.models import statusMixin
 
+import importlib
+
 
 class node(PolymorphicMPTTModel, statusMixin):
     ICONS = [
@@ -224,10 +226,17 @@ class ModuleList(node):
         verbose_name = _("Module List")
         verbose_name_plural = _("Module Lists")
 
+    def get_view_object(self):
+        module_name, class_name = self.module.rsplit(".", 1)
+        view_class = getattr(importlib.import_module(module_name), class_name)
+        instance = view_class()
+
+        return instance
 
     @property
-    def urly(self):
-        return '#%s' % self.slug
+    def url(self):
+        instance = self.get_view_object()
+        return instance.url
 
 
 class ContactSubmission(models.Model):
@@ -261,13 +270,3 @@ class HomePageHeader(models.Model):
     class Meta(object):
         ordering = ('position',)
 
-
-class FosteringSubmission(models.Model):
-    name = models.CharField(_("Full Name"), max_length=150)
-    email = models.EmailField(_("Email"))
-    contact_number = models.CharField(_("Contact Number"), max_length=20)
-
-    created = fields.CreationDateTimeField()
-
-    def __str__(self):
-        return self.name

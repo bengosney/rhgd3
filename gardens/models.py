@@ -40,6 +40,10 @@ class Garden(statusMixin, models.Model):
         verbose_name = _('Garden')
         verbose_name_plural = _('Gardens')
 
+    @property
+    def url(self):
+        return reverse_lazy('gardens:GardenDetail')
+
 
 
 class GardenPhoto(models.Model):
