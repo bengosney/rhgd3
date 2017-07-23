@@ -172,3 +172,5 @@ STATIC_URL = '/static/'
 THUMBNAIL_PROCESSORS = (
     'image_cropping.thumbnail_processors.crop_corners',
 ) + thumbnail_settings.THUMBNAIL_PROCESSORS
+
+SITE_ID = 1
