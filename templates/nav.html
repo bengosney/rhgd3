@@ -1,0 +1,23 @@
+{% load mptt_tags %}
+{% block nav %}
+<nav id="nav">
+  <ul>
+    {% recursetree nav_items %}
+    <li class="{{ node.nav_class }}">
+      {% if not node.is_leaf_node %}	
+      <a href="{{ node.url }}" data-toggle="dropdown" role="button" aria-expanded="false" >
+	{{ node.nav_title_actual }}
+	<i class="fa fa-caret-down" aria-hidden="true"></i>
+      </a>
+      <ul role="menu">
+	{{ children }}
+      </ul>
+      {% else %}
+      <a href="{{ node.url }}">{{ node.nav_title_actual }}</a>
+      {% endif %}
+    </li>
+    {% endrecursetree %}
+  </ul>
+</nav>
+{% endblock %}
+
