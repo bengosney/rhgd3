@@ -1,3 +1,4 @@
+boto==2.48.0
 dj-database-url==0.4.2
 Django==1.11.3
 django-admin-sortable2==0.6.13
