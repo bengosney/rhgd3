@@ -1,33 +1,37 @@
 // Misc.
-	$misc: (
-		z-index-base:	10000
-	);
+$misc: (
+    z-index-base:	10000
+);
 
 // Duration.
-	$duration: (
-		navPanel: 0.5s
-	);
+$duration: (
+    navPanel: 0.5s
+);
 
 // Size.
-	$size: (
-		navPanel: 275px,
-		radius: 5px
-	);
+$size: (
+    navPanel: 275px,
+    radius: 5px
+);
 
 // Font.
-	$font: (
-	);
+$font: (
+);
+
+$font_base: 'Raleway', sans-serif;
+$font_heading: 'IM Fell DW Pica SC', serif;
 
 // Palette.
-	$palette: (
-		bg: #f7f7f7,
-		fg: #474747,
-		fg-bold: #4c4c4c,
-		fg-light: #999,
-		border: #e0e0e0,
-
-		accent: (
-			bg: #37c0fb,
-			fg: #fff
-		)
-	);
+$palette: (
+    bg: #f7f7f7,
+    fg: #474747,
+    fg-bold: #4c4c4c,
+    fg-light: #999,
+    border: #e0e0e0,
+    
+    accent: (
+	#bg: #37c0fb,
+	bg: #75b04b,
+	fg: #fff
+    )
+);

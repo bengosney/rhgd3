@@ -1,0 +1,25 @@
+{% load cropping %}
+<div class="box post">
+  {% with garden.gardenphoto_set.all|first as image %}
+  <a href="{{ garden.url }}">
+    <span class="image left">
+      {% if image.main.url %}
+      <img src="{% cropped_thumbnail image "thumbnail" upscale=True %}" class="img-responsive" />
+      {% else %}
+      <img src="images/pic01.jpg" alt="" />
+      {% endif %}
+    </span>
+  </a>
+  {% endwith %}
+  <div class="inner">
+    <h3><a href="{{ garden.url }}">{{ garden.title }}</a></h3>
+    <p>
+      {% if garden.short_description|length > 0 %}
+      {{ garden.short_description }}
+      {% else %}
+      {{ garden.description | striptags | truncatechars:150 }}
+      {% endif %}
+      <a href="{{ garden.url }}" class="read-more">Read More</a>
+    </p>
+  </div>
+</div>

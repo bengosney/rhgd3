@@ -18,7 +18,10 @@ class GardenPhotoInline(
     extra = 3
 
     
-class GardenAdmin(SortableAdminMixin, statusAdmin, admin.ModelAdmin):
+class GardenAdmin(
+        SortableAdminMixin,
+        statusAdmin,
+        admin.ModelAdmin):
     model = models.Garden
     inlines = [GardenPhotoInline]
     #list_display = ('title', 'gardentype')
@@ -27,7 +30,7 @@ class GardenAdmin(SortableAdminMixin, statusAdmin, admin.ModelAdmin):
 
 class TypeAdmin(admin.ModelAdmin):
     model = models.WorkType
-
-
+    
+    
 admin.site.register(models.Garden, GardenAdmin)
 admin.site.register(models.WorkType, TypeAdmin)

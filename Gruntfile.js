@@ -9,12 +9,13 @@ module.exports = function (grunt) {
       options: {
         map: false,
         processors: [
-          require('postcss-import')(),
-          require('pixrem')(),
-          require('autoprefixer')({browsers: 'last 3 versions'}),
-          require('postcss-flexibility')(),
-          require('css-mqpacker')({sort: true}),
-          require('cssnano')({zindex: false})
+            require('postcss-import')(),
+	    require('postcss-import-url')(),
+            require('pixrem')(),
+            require('autoprefixer')({browsers: 'last 3 versions'}),
+            require('postcss-flexibility')(),
+            require('css-mqpacker')({sort: true}),
+            require('cssnano')({zindex: false})
         ]
       },
       dist: {
@@ -24,9 +25,10 @@ module.exports = function (grunt) {
     compass: {
       dist: {
         options: {
-          sassDir: 'scss',
-          cssDir: 'pages/static/pages/css',
-          environment: 'production'
+            sassDir: 'scss',
+            cssDir: 'pages/static/pages/css',
+	    imagesDir: 'scss',
+            environment: 'production'
         }
       },
       dev: {
@@ -39,7 +41,7 @@ module.exports = function (grunt) {
     sass_globbing: {
       sass: {
         files: {
-          'scss/_imports.scss': 'scss/partials/**/*.scss'
+          'scss/_imports.scss': 'scss/bpartials/**/*.scss'
         },
         options: {
           useSingleQuotes: false,

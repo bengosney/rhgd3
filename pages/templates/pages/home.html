@@ -2,22 +2,66 @@
 {% load thumbnail %}
 {% load cropping %}
 {% load staticfiles %}
+{% load page_extras %}
 
 {% block no-title %}{% endblock %}
 {% block title-default %}R H Garden Design{% endblock %}
 {% block content %}
-<!-- Banner -->
-{% for header in headers %}
+
+{% with headers|first as header %}
 <section id="banner" class="banner" style="background-image: url({% cropped_thumbnail header "cropped" upscale=True %});">
   <header>
     {{ header.strapline }}
-    <a href="#" class="button">Learn More</a>
+    {% if header.itemlink %}
+    <a href="{{ header.itemlink.url }}" class="button">Learn More</a>
+    {% endif %}
   </header>
 </section>
-{% endfor %}
+{% endwith %}
 
-<div class="home-content">
-  {{ page.body|safe }}
-</div>
+<!-- Highlights -->
+<section class="wrapper style1">
+  <div class="container">
+    <div class="row 200%">
+      {% for pod in pods %}
+      <section class="4u 12u(narrower)">
+	<div class="box highlight">
+	  <i class="icon major" style="background-image: url({{ pod.main.url }})"></i>
+	  <h3>{{ pod.title }}</h3>
+	  <p>{{ pod.description }}</p>
+	</div>
+      </section>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="wrapper style2">
+  <div class="container">
+    <header class="major">
+      {{ page.body|safe }}
+    </header>
+  </div>
+</section>
+
+
+<section class="wrapper style1">
+  <div class="container">
+    <h2>Take a look at some of our work</h2>
+    {% for gardens in garden_list|batch:2 %}
+    <div class="row">
+      {% for garden in gardens %}
+      <section class="6u 12u(narrower)">
+	{% include "gardens/garden-pod.html" with garden=garden %}
+      </section>
+      {% endfor %}
+    </div>
+    {% endfor %}
+    <section class="12u 12u(narrower)">
+      <a href="{% url 'pages:modulelist' 'projects' %}" class="button view-all">View all our projects</a>
+    </section>
+  </div>
+</section>
+
 
 {% endblock %}

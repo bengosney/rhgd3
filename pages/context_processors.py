@@ -1,4 +1,5 @@
 from .models import node
+from .forms import ContactForm
 
 
 def get_nav_items(request):
@@ -28,9 +29,13 @@ def get_breadcrumbs(request):
         if nav_node.url == full_path:
             return nav_node.get_ancestors(include_self=True)
 
+def get_contact_form(request):
+    return ContactForm()
 
+        
 def nav_items(request):
     return {
         'nav_items': get_nav_items(request),
-        'breadcrumbs': get_breadcrumbs(request)
+        'breadcrumbs': get_breadcrumbs(request),
+        'footer_contact_form': get_contact_form(request)
     }

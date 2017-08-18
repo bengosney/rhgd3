@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load mptt_tags %}
 <!DOCTYPE HTML>
 <!--
     Arcana by HTML5 UP
@@ -15,108 +16,25 @@
     <link rel="stylesheet" href="{% static "pages/css/main.css" %}" />
     <!--[if lte IE 8]><link rel="stylesheet" href="{% static "pages/css/ie8.css" %}" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="{% static "pages/css/ie9.css" %}" /><![endif]-->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   </head>
   <body>
     <div id="page-wrapper">
-      <div id="header" style="background-image: url('{% static "pages/images/bg02.png" %}'), url('{% static "pages/images/bg02.png" %}'), url('{% static "pages/images/bg01.png" %}');">
+      <div id="header">
 	<h1><a href="/" id="logo">R H Garden Design</a></h1>
 	{% include "nav.html" %}
       </div>
       {% block content %}
       {% endblock %}
 
-
-      <!-- Highlights -->
-      <section class="wrapper style1">
-	<div class="container">
-	  <div class="row 200%">
-	    <section class="4u 12u(narrower)">
-	      <div class="box highlight">
-		<i class="icon major fa-paper-plane"></i>
-		<h3>This Is Important</h3>
-		<p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.</p>
-	      </div>
-	    </section>
-	    <section class="4u 12u(narrower)">
-	      <div class="box highlight">
-		<i class="icon major fa-pencil"></i>
-		<h3>Also Important</h3>
-		<p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.</p>
-	      </div>
-	    </section>
-	    <section class="4u 12u(narrower)">
-	      <div class="box highlight">
-		<i class="icon major fa-wrench"></i>
-		<h3>Probably Important</h3>
-		<p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.</p>
-	      </div>
-	    </section>
-	  </div>
-	</div>
-      </section>
-
-      <!-- Gigantic Heading -->
-      <section class="wrapper style2">
-	<div class="container">
-	  <header class="major">
-	    <h2>A gigantic heading you can use for whatever</h2>
-	    <p>With a much smaller subtitle hanging out just below it</p>
-	  </header>
-	</div>
-      </section>
-
-      <!-- Posts -->
-      <section class="wrapper style1">
-	<div class="container">
-	  <div class="row">
-	    <section class="6u 12u(narrower)">
-	      <div class="box post">
-		<a href="#" class="image left"><img src="images/pic01.jpg" alt="" /></a>
-		<div class="inner">
-		  <h3>The First Thing</h3>
-		  <p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.</p>
-		</div>
-	      </div>
-	    </section>
-	    <section class="6u 12u(narrower)">
-	      <div class="box post">
-		<a href="#" class="image left"><img src="images/pic02.jpg" alt="" /></a>
-		<div class="inner">
-		  <h3>The Second Thing</h3>
-		  <p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.</p>
-		</div>
-	      </div>
-	    </section>
-	  </div>
-	  <div class="row">
-	    <section class="6u 12u(narrower)">
-	      <div class="box post">
-		<a href="#" class="image left"><img src="images/pic03.jpg" alt="" /></a>
-		<div class="inner">
-		  <h3>The Third Thing</h3>
-		  <p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.</p>
-		</div>
-	      </div>
-	    </section>
-	    <section class="6u 12u(narrower)">
-	      <div class="box post">
-		<a href="#" class="image left"><img src="images/pic04.jpg" alt="" /></a>
-		<div class="inner">
-		  <h3>The Fourth Thing</h3>
-		  <p>Duis neque nisi, dapibus sed mattis et quis, nibh. Sed et dapibus nisl amet mattis, sed a rutrum accumsan sed. Suspendisse eu.</p>
-		</div>
-	      </div>
-	    </section>
-	  </div>
-	</div>
-      </section>
-
       <!-- CTA -->
       <section id="cta" class="wrapper style3">
 	<div class="container">
 	  <header>
-	    <h2>Are you ready to continue your quest?</h2>
-	    <a href="#" class="button">Insert Coin</a>
+	    <h2>Are you ready to take your garden to the next level?</h2>
+	    {% comment %}
+	    <a href="#" class="button">Contact Us</a>	    
+	    {% endcomment %}
 	  </header>
 	</div>
       </section>
@@ -126,57 +44,29 @@
 	<div class="container">
 	  <div class="row">
 	    <section class="3u 6u(narrower) 12u$(mobilep)">
-	      <h3>Links to Stuff</h3>
+	      <h3>Navigation</h3>
 	      <ul class="links">
-		<li><a href="#">Mattis et quis rutrum</a></li>
-		<li><a href="#">Suspendisse amet varius</a></li>
-		<li><a href="#">Sed et dapibus quis</a></li>
-		<li><a href="#">Rutrum accumsan dolor</a></li>
-		<li><a href="#">Mattis rutrum accumsan</a></li>
-		<li><a href="#">Suspendisse varius nibh</a></li>
-		<li><a href="#">Sed et dapibus mattis</a></li>
+		{% recursetree nav_items %}
+		<li><a href="{{ node.url }}">{{ node.nav_title_actual }}</a></li>
+		{% endrecursetree %}
 	      </ul>
 	    </section>
 	    <section class="3u 6u$(narrower) 12u$(mobilep)">
-	      <h3>More Links to Stuff</h3>
+	      <h3>Gardens</h3>
 	      <ul class="links">
-		<li><a href="#">Duis neque nisi dapibus</a></li>
-		<li><a href="#">Sed et dapibus quis</a></li>
-		<li><a href="#">Rutrum accumsan sed</a></li>
-		<li><a href="#">Mattis et sed accumsan</a></li>
-		<li><a href="#">Duis neque nisi sed</a></li>
-		<li><a href="#">Sed et dapibus quis</a></li>
-		<li><a href="#">Rutrum amet varius</a></li>
+		{% for garden in all_gardens|slice:":10" %}
+		<li><a href="{{ garden.url }}">{{ garden.title }}</a></li>
+		{% endfor %}
 	      </ul>
 	    </section>
 	    <section class="6u 12u(narrower)">
 	      <h3>Get In Touch</h3>
-	      <form>
-		<div class="row 50%">
-		  <div class="6u 12u(mobilep)">
-		    <input type="text" name="name" id="name" placeholder="Name" />
-		  </div>
-		  <div class="6u 12u(mobilep)">
-		    <input type="email" name="email" id="email" placeholder="Email" />
-		  </div>
-		</div>
-		<div class="row 50%">
-		  <div class="12u">
-		    <textarea name="message" id="message" placeholder="Message" rows="5"></textarea>
-		  </div>
-		</div>
-		<div class="row 50%">
-		  <div class="12u">
-		    <ul class="actions">
-		      <li><input type="submit" class="button alt" value="Send Message" /></li>
-		    </ul>
-		  </div>
-		</div>
-	      </form>
+	      {% include "form_render.html" with form=footer_contact_form id="footer-contact" action="/contact/" %}
 	    </section>
 	  </div>
 	</div>
 
+	{% comment %}
 	<!-- Icons -->
 	<ul class="icons">
 	  <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
@@ -185,11 +75,14 @@
 	  <li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
 	  <li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
 	</ul>
+	{% endcomment %}
 
 	<!-- Copyright -->
 	<div class="copyright">
 	  <ul class="menu">
-	    <li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+	    <li>&copy; R H Garden Design. All rights reserved</li>
+	    <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+	    <li>Development: Flaminghedgehog Inc.</li>
 	  </ul>
 	</div>
 
@@ -198,12 +91,9 @@
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.dropotron.min.js"></script>
-    <script src="assets/js/skel.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-    <script src="assets/js/main.js"></script>
-
+    <script src="{% static "pages/js/script.js" %}"></script>
+    <!--[if lte IE 8]><script src=""{% static "pages/js/ie/respond.min.js" %}"></script><![endif]-->
+    {% block footerjs %}
+    {% endblock %}    
   </body>
 </html>

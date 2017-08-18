@@ -4,9 +4,10 @@ from polymorphic_tree.admin import PolymorphicMPTTParentModelAdmin, \
     PolymorphicMPTTChildModelAdmin
 from adminsortable2.admin import SortableAdminMixin
 from image_cropping import ImageCroppingMixin
+from modulestatus.admin import statusAdmin
 
 from .models import ContactSubmission, Page, Empty, ModuleList, \
-    ExternalLink, SocialLink, node, HomePageHeader
+    ExternalLink, SocialLink, node, HomePageHeader, HomePagePod
 
 
 class BaseChildAdmin(PolymorphicMPTTChildModelAdmin):
@@ -76,8 +77,14 @@ class HomePageHeaderAdmin(
         ImageCroppingMixin,
         admin.ModelAdmin):
     model = HomePageHeader
-    list_display = ('admin_image', 'strapline', 'subline',)
+    list_display = ('admin_image', 'strapline',)
 
+    
+class HomePagePodAdmin(SortableAdminMixin, statusAdmin, admin.ModelAdmin):
+    model = HomePagePod
+
+    
 admin.site.register(node, TreeNodeParentAdmin)
 admin.site.register(ContactSubmission, ContactAdmin)
 admin.site.register(HomePageHeader, HomePageHeaderAdmin)
+admin.site.register(HomePagePod, HomePagePodAdmin)

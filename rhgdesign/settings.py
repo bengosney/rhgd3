@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     'mptt',
     'adminsortable2',
     'sorl.thumbnail',
+    'fontawesome',
     'modulestatus',
     'pages',
     'gardens',
@@ -101,6 +102,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'pages.context_processors.nav_items',
+                'gardens.context_processors.items',
                 #'django.core.context_processors.request',
             ],
         },
@@ -108,6 +110,11 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'rhgdesign.wsgi.application'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = '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' #os.environ.get('SENDGRID_API_KEY')
 
 
 # Database
@@ -174,3 +181,5 @@ THUMBNAIL_PROCESSORS = (
 ) + thumbnail_settings.THUMBNAIL_PROCESSORS
 
 SITE_ID = 1
+
+FONTAWESOME_CSS_URL = 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'

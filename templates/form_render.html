@@ -1,0 +1,18 @@
+<form method="post" action="{{ action }}" id="{{ id }}">
+  {% csrf_token %}
+
+  <div class="row 50%">
+    {% for field in form %}
+    <div class="fieldWrapper {{ field.id_for_label }} 12u">
+      {{ field.errors }}
+      {{ field }}
+    </div>
+    {% endfor %}
+    
+    <div class="12u">
+      <ul class="actions">
+	<li><input type="submit" class="button alt" value="Send Message" /></li>
+      </ul>
+    </div>
+  </div>
+</form>

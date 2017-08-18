@@ -9,25 +9,14 @@ from django.core.mail import EmailMessage
 from django.template import Context
 from django.template.loader import get_template
 
-from .models import Page, ModuleList, HomePageHeader
+from .models import Page, ModuleList, HomePageHeader, HomePagePod
+from gardens.models import Garden
 
 def error404(request):
     response = render_to_response('pages/404.html', {},
                                   context_instance=RequestContext(request))
     response.status_code = 404
     return response
-
-    
-class HomePage(ListView):
-    model = Page
-    template_name = 'pages/home.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(self.__class__, self).get_context_data(**kwargs)
-        context['page'] = Page.objects.get(is_home_page=True)
-        context['headers'] = HomePageHeader.objects.all()
-
-        return context
 
 
 class DetailFormView(GenericModelView):
@@ -55,25 +44,26 @@ class DetailFormView(GenericModelView):
         form = self.get_form(data=request.POST, files=request.FILES)
         if form.is_valid():
             return self.form_valid(form)
+        
         return self.form_invalid(form)
 
     def form_valid(self, form):
         self.object = form.save()
 
         template = get_template('pages/email-submission.html')
-        context = Context({
+        context = {
             'name': self.object.name,
             'email': self.object.email,
             'phone': self.object.phone,
             'enquiry': self.object.enquiry,
-        })
+        }
         content = template.render(context)
-        
+
         email = EmailMessage(
             "New contact form submission",
             content,
-            'info@romrescue.org',
-            ['info@romrescue.org'],
+            'bengosney@googlemail.com',
+            ['bengosney@googlemail.com'],
             headers = {'Reply-To': self.object.email }
         )
         email.send()
@@ -111,6 +101,20 @@ class PageView(DetailFormView):
     lookup_field = 'slug'
     form_class = None
 
+        
+class HomePage(ListView):
+    model = Page
+    template_name = 'pages/home.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(self.__class__, self).get_context_data(**kwargs)
+        context['page'] = Page.objects.get(is_home_page=True)
+        context['headers'] = HomePageHeader.objects.all()
+        context['pods'] = HomePagePod.objects.all()
+        context['garden_list'] = Garden.objects.order_by('position')[:4]
+
+        return context
+
 
 class ContactView(CreateView):
     model = Page
@@ -130,8 +134,7 @@ class ModuleListView(DetailView):
         for part in view_string[1:]:
             view_class = getattr(view_class, part)
 
-        context = super(self.__class__, self).get_context_data(**kwargs)
-        context['list_html'] = view_class.as_view()(
-            self.request).rendered_content
+        context = super(self.__class__, self).get_context_data(**self.kwargs)
+        context['list_html'] = view_class.as_view()(self.request, **context).rendered_content
 
         return context

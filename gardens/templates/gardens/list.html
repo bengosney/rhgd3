@@ -1,0 +1,38 @@
+{% load thumbnail %}
+{% load cropping %}
+{% load staticfiles %}
+{% load page_extras %}
+
+{% block content %}
+<section class="wrapper style1 no-pad">
+  <div class="container">
+    <div class="row 200%">
+      <div class="8u 12u(narrower) important(narrower)">
+	<div id="content">
+	  <ul>
+	    {% for garden in garden_list %}
+	    <li>
+	      {% include "gardens/garden-pod.html" with garden=garden %}
+	    </li>
+	    {% endfor %}
+	  </ul>
+	</div>
+      </div>
+      <div class="4u 12u(narrower)">
+	<div id="sidebar">
+	  <ul class="filter">
+	    {% for work_type in work_types %}
+	      <li{% if filter_val == work_type.slug %} class="active"{% endif %}>
+		<h3>{{ work_type.title }}</h3>
+		{% if work_type.description %}
+		  <div>{{ work_type.description|safe }}</div>
+		{% endif %}		
+	      </li>
+	    {% endfor %}
+	  </ul>
+	</div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

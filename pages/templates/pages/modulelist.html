@@ -4,10 +4,16 @@
 {% block title %}{{ object.title }}{% endblock %}
 
 {% block content %}
-<div>
-  <h1 id="main_header">{{ object.title }}</h1>
-  <div class="body-content">{{ object.body|safe }}</div>
-</div>
+<section class="wrapper style1">
+  <div class="container">
+    <div class="row 200%">
+      <div>
+	<h2 id="main_header">{{ object.title }}</h2>
+	<div class="body-content">{{ object.body|safe }}</div>
+      </div>
+    </div>
+  </div>
+</section>
 <div class="list-contents">
   {{ list_html }}
 </div>

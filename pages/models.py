@@ -10,6 +10,8 @@ from polymorphic_tree.models import PolymorphicMPTTModel
 from polymorphic_tree.models import PolymorphicTreeForeignKey
 
 from image_cropping import ImageRatioField
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFit
 
 from .decorators import get_registered_list_views
 
@@ -184,6 +186,7 @@ class Page(node):
     )
 
     body = RichTextField(_("Body"))
+    show_map = models.BooleanField(_("Show map"))
     form = models.CharField(
         max_length=100,
         blank=True,
@@ -232,17 +235,17 @@ class ModuleList(node):
         instance = view_class()
 
         return instance
-
+"""
     @property
     def url(self):
         instance = self.get_view_object()
         return instance.url
-
+"""
 
 class ContactSubmission(models.Model):
     name = models.CharField(_("Name"), max_length=200)
-    email = models.EmailField(_("Email"))
     phone = models.CharField(_("Phone"), max_length=100, blank=True, null=True)
+    email = models.EmailField(_("Email"))
     enquiry = models.TextField(_("Enquiry"))
 
     created = fields.CreationDateTimeField()
@@ -255,7 +258,6 @@ class HomePageHeader(models.Model):
     image = models.ImageField(upload_to='images')
     cropped = ImageRatioField('image', '1600x484')
     strapline = models.CharField(_("Strap Line"), max_length=200)
-    subline = models.CharField(_("Sub Line"), max_length=400)
     itemlink = models.ForeignKey(node, null=True, blank=True)
     position = models.PositiveIntegerField(default=0, blank=False, null=False)
 
@@ -269,4 +271,28 @@ class HomePageHeader(models.Model):
 
     class Meta(object):
         ordering = ('position',)
+
+
+class HomePagePod(statusMixin, models.Model):
+    title = models.CharField(max_length=150)
+    description = models.CharField(max_length=350)
+
+    image = models.ImageField(upload_to='uploads/homepagepods', blank=True, null=True)
+    main = ImageSpecField(source='image',
+                          processors=[ResizeToFit(64, 64)],
+                          format='PNG')
+
+    link = models.ForeignKey(node)
+
+    created = fields.CreationDateTimeField()
+    modified = fields.ModificationDateTimeField()
+    position = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return self.title
+
+    class Meta(object):
+        ordering = ('position',)
+        verbose_name = _('Home Page Pod')
+        verbose_name_plural = _('Home Page Pods')
 

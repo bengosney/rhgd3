@@ -11,4 +11,7 @@ urlpatterns = [
     url(r'^(?P<slug>[\w-]+)/$',
         views.GardenDetail.as_view(),
         name='GardenDetail'),
+    url(r'^filter/(?P<slug>[\w-]+)/$',
+        views.GardenListFiltered.as_view(),
+        name='GardenListFiltered'),
 ]

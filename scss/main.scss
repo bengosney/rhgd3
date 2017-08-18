@@ -1,8 +1,9 @@
 @import 'libs/vars';
 @import 'libs/functions';
 @import 'libs/mixins';
-@import url("font-awesome.min.css");
+//@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,600,600italic");
+@import url('https://fonts.googleapis.com/css?family=IM+Fell+DW+Pica+SC');
 
 /*
 	Arcana by HTML5 UP
@@ -321,7 +322,8 @@ label {
 	text-align: center;
 	cursor: default;
 	background-color: _palette(accent, bg);
-	@include vendor('background-image', ('linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.15))', 'url("images/bg01.png")'));
+	background-position: center;
+	background-repeat: no-repeat;
 	color: _palette(accent, fg);
 	border-radius: 100%;
 	display: inline-block;
@@ -480,7 +482,7 @@ input[type="button"],
     background-color: _palette(accent, bg);
     border-radius: _size(radius);
     border: 0;
-    color: _palette(accent, fg);
+    color: _palette(accent, fg) !important;
     cursor: pointer;
     display: inline-block;
     padding: 0 1.5em;
@@ -490,6 +492,10 @@ input[type="button"],
     text-decoration: none;
     font-weight: 600;
     letter-spacing: -0.025em;
+
+    &.view-all {
+	display: block;
+    }
 
     &:hover {
 	background-color: lighten(_palette(accent, bg), 5);
@@ -552,6 +558,26 @@ input[type="button"],
 	    > :last-child {
 		margin-bottom: 0;
 	    }
+
+	    h3 {
+		line-height: 1em;
+
+		a {
+		    border: none;
+
+		    &:hover {
+			color: _palette(accent, bg);
+		    }
+		}
+	    }
+
+	    .read-more {
+		color: _palette(accent, bg);
+		font-size: .8em;
+		float: right;
+		line-height: 1.5em;
+		padding-top: 0.5em;
+	    }
 	}
 
 	.image {
@@ -567,7 +593,7 @@ input[type="button"],
     text-align: center;
     padding: 3em 0 0 0;
     background-color: #fff;
-    #background-image: url('images/bg02.png'), url('images/bg02.png'), url('images/bg01.png');
+    background-image: inline-image('images/bg02.png'), inline-image('images/bg02.png'), inline-image('images/bg01.png');
     background-position: top left, top left, top left;
     background-size: 100% 6em, 100% 6em, auto;
     background-repeat: no-repeat, no-repeat, repeat;
@@ -577,9 +603,11 @@ input[type="button"],
 	margin: 0;
 
 	a {
-	    font-size: 1.5em;
-	    letter-spacing: -0.025em;
-	    border: 0;
+            font-size: 2em;
+            font-family: $font_heading;
+            letter-spacing: 0.025em;
+            font-weight: 300;
+            border: 0;
 	}
     }
 }
@@ -709,7 +737,7 @@ input[type="button"],
 .banner {
     background-position: center center;
     background-size: cover;
-    box-shadow: inset 0 0 100px black;
+    box-shadow: inset 0 0 10vw black;
     height: 28em;
     text-align: center;
     position: relative;
@@ -757,14 +785,17 @@ input[type="button"],
 
     &.style1 {
 	background: #fff;
+	a {
+            color: _palette(fg);
+	}
     }
 
     &.style2 {
-	background-color:		#fff;
-	background-image:		url('images/bg02.png'),			url('images/bg03.png'),			url('images/bg01.png');
-	background-position:	top left,						bottom left,					top left;
-	background-size:		100% 6em,						100% 6em,						auto;
-	background-repeat:		no-repeat,						no-repeat,						repeat;
+	background-color: #fff;
+	background-image: inline-image('images/bg02.png'), inline-image('images/bg03.png'), inline-image('images/bg01.png');
+	background-position: top left, bottom left, top left;
+	background-size: 100% 6em, 100% 6em, auto;
+	background-repeat: no-repeat, no-repeat, repeat;
     }
 
     &.style3 {
@@ -806,7 +837,7 @@ input[type="button"],
 /* Footer */
 
 #footer {
-    padding: 4em 0 8em 0;
+    padding: 4em 0 2em 0;
 
     a {
 	color: inherit;
@@ -1357,3 +1388,171 @@ input[type="button"],
     }
 
 }
+
+.img-responsive {
+    max-width: 100%;
+    height: auto !important;
+}
+
+.hero {
+    position: relative;
+    
+    img {
+	display: block;
+    }
+
+    &:after {
+	box-shadow: inset 0 0 10vw black;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	content: "";
+    }
+}
+
+
+form {
+    label {
+	font-size: .8em;
+	line-height: 1em;
+	color: _palette(fg);
+	font-family: 'Source Sans Pro', sans-serif;
+
+	&.required {
+	    &:after {
+		content: "required";
+		display: inline-block;
+		float: right;
+		font-style: italic;
+		font-weight: 100;
+	    }
+	}
+    }
+
+    .fieldWrapper {
+	padding-bottom: .5em;
+    }
+}
+
+#map {
+    height: 460px;
+    height: 34vw;
+    background-image: url(https://maps.googleapis.com/maps/api/staticmap?center=51.3714589,-0.19725319999997737&zoom=11&scale=1&size=600x600&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:%7C51.3714589,-0.19725319999997737);
+    background-position: center;
+    margin-bottom: 1em;
+}
+
+.hero-image {
+    //@extend #banner;
+
+    background-position: center center;
+    background-size: cover;
+    box-shadow: inset 0 0 10vw black;
+    //height: 28em;
+    position: relative;
+
+
+    .inner {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	@media (max-width: 600px) {
+	    top: 0;
+	}
+
+	background: rgba(0, 0, 0, 0.5);
+
+	.wrapper {
+	    padding-top: 0;
+	    padding-bottom: 0;
+	}
+
+	h2, p {	   
+	    line-height: 1em;
+	}
+
+	p {
+	    margin-bottom: 0;
+	}
+
+	h2 {
+	    margin-bottom: .5em;
+	}
+
+	.container {
+	    padding: 2em 0;
+	}
+    }
+    
+    .container {
+	color: #fff;	
+    }
+}
+
+.cycle-pager {
+    text-align: center;
+    font-size: 3em;
+    margin-top: .5em;
+
+    > span {
+	margin: 0 .1em;
+	cursor: pointer;
+    }
+
+    .cycle-pager-active {
+	color: _palette(accent, bg);
+    }
+}
+
+body {
+    min-width: 310px;
+}
+
+#titleBar {
+    .title {
+	font-family: IM Fell DW Pica SC,serif;
+    }
+}
+
+.filter {
+    li {
+	padding-bottom: 1.5em;
+	
+	&.active {
+	    h3, h4 {
+		color: _palette(accent, bg);
+	    }
+	}
+
+	h3 {
+	    margin: 0;
+	    padding: 0;
+	}
+
+	p {
+	    margin-bottom: .5em;
+	}
+    }
+
+    .link {
+	font-size: .75em;
+    }
+    
+    .all {
+	margin-top: .5em;
+	padding-top: .5em;
+    }
+}
+
+.wrapper {
+    &.no-pad {
+	padding-top: 0;
+    }
+}
+
+@import 'imports';
