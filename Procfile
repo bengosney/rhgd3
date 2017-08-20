@@ -1,2 +1,2 @@
 release: python manage.py migrate --noinput
-web: gunicorn romrescue.wsgi --log-file -
+web: gunicorn rhgdesign.wsgi --log-file -
