@@ -27,3 +27,4 @@ six==1.10.0
 sorl-thumbnail==12.3
 Werkzeug==0.12.2
 whitenoise==3.3.0
+gunicorn==19.7.1
