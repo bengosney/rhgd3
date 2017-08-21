@@ -1,4 +1,5 @@
-boto==2.48.0
+boto3==1.4.6
+botocore==1.6.3
 dj-database-url==0.4.2
 Django==1.11.3
 django-admin-sortable2==0.6.13
@@ -15,16 +16,19 @@ django-polymorphic-tree==1.4
 django-storages==1.6.5
 django-tag-parser==3.1
 django-vanilla-views==1.0.4
+docutils==0.14
 easy-thumbnails==2.4.1
 future==0.16.0
+jmespath==0.9.3
 olefile==0.44
 pilkit==2.0
 Pillow==4.2.1
 psycopg2==2.7.1
+python-dateutil==2.6.1
 pytz==2017.2
 PyYAML==3.12
+s3transfer==0.1.10
 six==1.10.0
 sorl-thumbnail==12.3
 Werkzeug==0.12.2
 whitenoise==3.3.0
-gunicorn==19.7.1
