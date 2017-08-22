@@ -21,6 +21,7 @@ django-vanilla-views==1.0.4
 docutils==0.14
 easy-thumbnails==2.4.1
 future==0.16.0
+gunicorn==19.7.1
 idna==2.6
 jmespath==0.9.3
 olefile==0.44
