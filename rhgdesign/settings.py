@@ -90,6 +90,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
 
 ROOT_URLCONF = 'rhgdesign.urls'
@@ -206,3 +207,10 @@ STATICFILES_STORAGE = ('whitenoise.storage.'
 
 
 FONTAWESOME_CSS_URL = 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'
+
+ROLLBAR = {
+    'access_token': os.environ.get('ROLLBAR_TOKEN'),
+    'environment': 'development' if DEBUG else 'production',
+    'branch': 'master',
+    'root': BASE_DIR,
+}
