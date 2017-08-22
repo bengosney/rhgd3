@@ -200,7 +200,7 @@ THUMBNAIL_PROCESSORS = (
     'image_cropping.thumbnail_processors.crop_corners',
 ) + thumbnail_settings.THUMBNAIL_PROCESSORS
 
-SITE_ID = 1
+SITE_ID = 2
 
 STATICFILES_STORAGE = ('whitenoise.storage.'
                        'CompressedManifestStaticFilesStorage')
