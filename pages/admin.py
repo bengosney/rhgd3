@@ -55,12 +55,7 @@ class TreeNodeParentAdmin(PolymorphicMPTTParentModelAdmin):
     )
 
     list_display = ('title', 'actions_column',)
-
-    class Media:
-        css = {
-            'all': ('admin/treenode/admin.css',)
-        }
-
+    
 
 class ContactAdmin(admin.ModelAdmin):
     model = ContactSubmission
