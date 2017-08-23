@@ -27,9 +27,16 @@ class GardenAdmin(
     #list_display = ('title', 'gardentype')
     list_per_page = 25
 
+    class Media:
+        js = ('pages/js/ckeditor.js',)
+
 
 class TypeAdmin(admin.ModelAdmin):
     model = models.WorkType
+
+    class Media:
+        js = ('pages/js/ckeditor.js',)
+
     
     
 admin.site.register(models.Garden, GardenAdmin)

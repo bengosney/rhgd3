@@ -35,6 +35,9 @@ class BaseChildAdmin(PolymorphicMPTTChildModelAdmin):
         SEO_FIELDSET,
     )
 
+    class Media:
+        js = ('pages/js/ckeditor.js',)
+
 
 class BaseChildNoSEOAdmin(BaseChildAdmin):
     pass
@@ -74,9 +77,15 @@ class HomePageHeaderAdmin(
     model = HomePageHeader
     list_display = ('admin_image', 'strapline',)
 
+    class Media:
+        js = ('pages/js/ckeditor.js',)
+
     
 class HomePagePodAdmin(SortableAdminMixin, statusAdmin, admin.ModelAdmin):
     model = HomePagePod
+
+    class Media:
+        js = ('pages/js/ckeditor.js',)
 
     
 admin.site.register(node, TreeNodeParentAdmin)
