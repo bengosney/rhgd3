@@ -1563,15 +1563,20 @@ body {
 
 .body-content {
     img {
-	max-width: 100%;
-	height: auto !important;
-
+	&.left, &.right {
+	    max-width: 100%;
+	    height: auto !important;	
+	    padding-bottom: 1em;
+	}
+	
 	&.left {
 	    float: left;
+	    padding-right: 1em;
 	}
 
 	&.right {
 	    float: right;
+	    padding-left: 1em;
 	}
     }
 }
