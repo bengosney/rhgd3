@@ -13,7 +13,7 @@
   <header>
     {{ header.strapline }}
     {% if header.itemlink %}
-    <a href="{{ header.itemlink.url }}" class="button">Learn More</a>
+    <a href="{{ header.itemlink.url }}" class="button">{{ header.itemlink.title }}</a>
     {% endif %}
   </header>
 </section>
