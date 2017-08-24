@@ -1576,6 +1576,9 @@ label {
   text-decoration: none;
   position: relative;
   text-decoration: none; }
+
+&.major {
+}
   .icon:before {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -1585,6 +1588,8 @@ label {
     text-transform: none !important; }
   .icon > .label {
     display: none; }
+
+
   .icon.major {
     text-align: center;
     cursor: default;
@@ -1600,7 +1605,7 @@ label {
     line-height: 5em;
     box-shadow: 0 0 0 7px white, 0 0 0 8px #e0e0e0;
     margin: 0 0 2em 0; }
-    .icon.major:before {
+  .icon.major:before {
       font-size: 36px; }
 
 /* Lists */

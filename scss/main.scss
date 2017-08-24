@@ -324,6 +324,7 @@ label {
 	background-color: _palette(accent, bg);
 	background-position: center;
 	background-repeat: no-repeat;
+	background-size: 80%;
 	color: _palette(accent, fg);
 	border-radius: 100%;
 	display: inline-block;
@@ -1553,6 +1554,10 @@ body {
     &.no-pad {
 	padding-top: 0;
     }
+}
+
+.view-all-button {
+    margin-bottom: 2em;
 }
 
 @import 'imports';
