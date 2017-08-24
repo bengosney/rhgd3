@@ -1560,4 +1560,20 @@ body {
     margin-bottom: 2em;
 }
 
+
+.body-content {
+    img {
+	max-width: 100%;
+	height: auto !important;
+
+	&.left {
+	    float: left;
+	}
+
+	&.right {
+	    float: right;
+	}
+    }
+}
+
 @import 'imports';
