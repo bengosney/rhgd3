@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo "Removing previous dumps"
+rm -f latest.dump*
+
+echo "Creating backup"
+heroku pg:backups:capture --app still-caverns-78460
+
+echo "Downloading backup"
+heroku pg:backups:download --app still-caverns-78460 
+
+echo "Importing backup"
+PGPASSWORD="cJYuVv3uaBeP78Le" pg_restore --verbose --clean --no-acl --no-owner -h localhost -U rhgdesign -d rhgdesign latest.dump
