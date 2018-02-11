@@ -1,9 +1,10 @@
 from .models import node
 from .forms import ContactForm
 
+from modulestatus import ModelStatus
 
 def get_nav_items(request):
-    nodes = node.objects.all()
+    nodes = node.objects.all().filter(status=ModelStatus.LIVE_STATUS)
 
     id = 0
     for nav_node in nodes:
