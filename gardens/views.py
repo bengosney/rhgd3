@@ -1,5 +1,5 @@
 from vanilla import DetailView, ListView
-from .models import Garden, WorkType
+from .models import Garden, WorkType, MaintenanceItem
 from pages.decorators import register_list_view
 from django.core.urlresolvers import reverse_lazy
 from django.http import Http404
@@ -26,8 +26,13 @@ class GardenList(ListView):
 
         return context
 
+    
+@register_list_view
+class MaintenanceItemView(ListView):
+    model = MaintenanceItem
+    template_name = 'gardens/maintenanceitems.html'
 
-
+    
 class GardenListFiltered(ListView):
     model = Garden
     template_name = 'gardens/list.html'

@@ -1,0 +1,35 @@
+{% load thumbnail %}
+{% load cropping %}
+{% load staticfiles %}
+{% load page_extras %}
+
+{% block content %}
+<section class="wrapper style1 no-pad">
+  <div class="container">
+    <div class="row 200%">
+      <div class="12u">
+	<div id="content">
+	  <div class="row">
+	    {% for item in maintenanceitem_list %}
+	    <div class="6u 12u(narrow) maintenanceitem">
+	      <div class="row">
+		<div class="5u">
+		  <img src="{% cropped_thumbnail item "thumbnail" upscale=True %}" class="img-responsive image" />
+		</div>
+		<div class="7u">
+		  <h2 class="main-title">{{ item.title }}</h2>
+		  <div>
+		    {{ item.description|safe }}
+		  </div>
+		</div>
+	      </div>
+	    </div>
+	    {% endfor %}
+	  </div>
+	</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

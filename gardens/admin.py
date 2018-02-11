@@ -21,6 +21,7 @@ class GardenPhotoInline(
 class GardenAdmin(
         SortableAdminMixin,
         statusAdmin,
+        ImageCroppingMixin,
         admin.ModelAdmin):
     model = models.Garden
     inlines = [GardenPhotoInline]
@@ -31,6 +32,18 @@ class GardenAdmin(
         js = ('pages/js/ckeditor.js',)
 
 
+class MaintenanceItemAdmin(
+        SortableAdminMixin,
+        statusAdmin,
+        ImageCroppingMixin,
+        admin.ModelAdmin):
+    model = models.MaintenanceItem
+    list_per_page = 25
+
+    class Media:
+        js = ('pages/js/ckeditor.js',)
+
+        
 class TypeAdmin(admin.ModelAdmin):
     model = models.WorkType
 
@@ -41,3 +54,4 @@ class TypeAdmin(admin.ModelAdmin):
     
 admin.site.register(models.Garden, GardenAdmin)
 admin.site.register(models.WorkType, TypeAdmin)
+admin.site.register(models.MaintenanceItem, MaintenanceItemAdmin)

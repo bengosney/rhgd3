@@ -15,6 +15,24 @@ from fontawesome.fields import IconField
 
 from modulestatus.models import statusMixin
 
+class MaintenanceItem(statusMixin, models.Model):
+    title = models.CharField(max_length=150)
+    description = RichTextField(_("Description"))
+    image = models.ImageField(upload_to='uploads/maintenance')    
+    thumbnail = ImageRatioField('image', '300x225')
+
+    created = fields.CreationDateTimeField()
+    modified = fields.ModificationDateTimeField()
+    position = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return self.title
+
+    class Meta(object):
+        ordering = ('position',)
+        verbose_name = _('Maintenance Item')
+        verbose_name_plural = _('Maintenance Items')
+    
 
 class WorkType(statusMixin, models.Model):
     title = models.CharField(max_length=150)

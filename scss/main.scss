@@ -1582,3 +1582,13 @@ body {
 }
 
 @import 'imports';
+
+.maintenanceitem {
+    .main-title {
+	$font-size: 1.5rem;
+	$line-height: $font-size * 1.5;
+	font-size: $font-size;
+	line-height: $line-height;
+	margin-top: -($line-height - $font-size);
+    }
+}
