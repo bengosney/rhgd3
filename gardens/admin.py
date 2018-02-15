@@ -31,13 +31,22 @@ class GardenAdmin(
     class Media:
         js = ('pages/js/ckeditor.js',)
 
+        
+class MaintenancePhotoInline(
+        #SortableInlineAdminMixin,
+        ImageCroppingMixin,
+        admin.TabularInline):
+    model = models.MaintenancePhoto
+    extra = 3
 
+        
 class MaintenanceItemAdmin(
         SortableAdminMixin,
         statusAdmin,
         ImageCroppingMixin,
         admin.ModelAdmin):
     model = models.MaintenanceItem
+    inlines = [MaintenancePhotoInline]
     list_per_page = 25
 
     class Media:

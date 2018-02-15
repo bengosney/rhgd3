@@ -15,11 +15,13 @@ from fontawesome.fields import IconField
 
 from modulestatus.models import statusMixin
 
+
 class MaintenanceItem(statusMixin, models.Model):
     title = models.CharField(max_length=150)
+    short_description = models.CharField(_('Short Description'), max_length=150, blank=True)        
     description = RichTextField(_("Description"))
-    image = models.ImageField(upload_to='uploads/maintenance')    
-    thumbnail = ImageRatioField('image', '300x225')
+
+    slug = fields.AutoSlugField(populate_from='title')
 
     created = fields.CreationDateTimeField()
     modified = fields.ModificationDateTimeField()
@@ -32,8 +34,52 @@ class MaintenanceItem(statusMixin, models.Model):
         ordering = ('position',)
         verbose_name = _('Maintenance Item')
         verbose_name_plural = _('Maintenance Items')
-    
 
+    @property
+    def url(self):
+        if self.slug == "":
+            self._meta.get_field('slug').create_slug(self, True)
+            self.save()
+            
+        return reverse_lazy('gardens:MaintenanceItemDetailView', kwargs={'slug': self.slug})
+
+    
+class MaintenancePhoto(models.Model):
+    MaintenanceItem = models.ForeignKey(MaintenanceItem)    
+    image = models.ImageField(upload_to='uploads/maintenancephotos')
+    # main = ImageSpecField(source='image',
+    #                       processors=[ResizeToFit(600, 400)],
+    #                       format='JPEG',
+    #                       options={'quality': 70})
+
+    large = ImageRatioField('image', '600x400')
+    thumbnail = ImageRatioField('image', '170x145')
+    hero = ImageRatioField('image', '1600x484')
+    is_hero = models.BooleanField(_('Hero Image'))
+
+    position = models.PositiveIntegerField(default=0, blank=False, null=False)
+
+    def __str__(self):
+        return os.path.basename(self.image.url)
+
+    class Meta(object):
+        ordering = ('position',)
+        verbose_name = _('Photo')
+        verbose_name_plural = _('Photos')
+
+
+    def save(self, *args, **kwargs):
+        if self.is_hero:
+            try:
+                temp = GardenPhoto.objects.get(is_hero=True, garden=self.garden)
+                if self != temp:
+                    temp.is_hero = False
+                    temp.save()
+            except GardenPhoto.DoesNotExist:
+                pass
+        super(GardenPhoto, self).save(*args, **kwargs)
+
+        
 class WorkType(statusMixin, models.Model):
     title = models.CharField(max_length=150)
     slug = fields.AutoSlugField(populate_from='title')

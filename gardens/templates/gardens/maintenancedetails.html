@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% load cropping %}
+{% load staticfiles %}
+{% load page_extras %}
+
+{% block title %}{{ maintenanceitem.title }}{% endblock %}
+
+{% block content %}
+  <section class="wrapper style1">
+    <div class="container">
+      <header>
+	{% if garden.gardenphoto_hero_set.all|length == 0 %}
+	  <h2>{{ maintenanceitem.title }}</h2>
+	  <p>{{ garden.sub_title }}</p>	  
+	{% endif %}
+      </header>
+      <div class="row 200%">
+	<div class="7u 12u(narrower)">
+	  <div class="content cycle-slideshow" data-cycle-center-horz="true">
+	    {% for image in maintenanceitem.maintenancephoto_set.all %}
+	      <img src="{% cropped_thumbnail image "large" upscale=True %}" class="img-responsive" />
+	    {% endfor %}
+	    <div class="cycle-pager"></div>
+	  </div>
+	</div>
+	<div class="5u 12u(narrower)">
+	  <h3>Details</h3>
+	  {{ maintenanceitem.description|safe }}
+	</div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

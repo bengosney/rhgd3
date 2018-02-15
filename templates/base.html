@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load mptt_tags %}
+{% load websettings_tags %}
 <!DOCTYPE HTML>
 <!--
     Arcana by HTML5 UP
@@ -29,7 +30,8 @@
       <section id="cta" class="wrapper style3">
 	<div class="container">
 	  <header>
-	    <h2>Are you ready to take your garden to the next level?</h2>
+	    {% websetting "contact-number" as contact_number %}
+	    <h2>Are you ready to take your garden to the next level? Call us on {{ contact_number }}</h2>
 	    {% comment %}
 	    <a href="#" class="button">Contact Us</a>	    
 	    {% endcomment %}

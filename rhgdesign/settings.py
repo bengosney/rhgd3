@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     'modulestatus',
     'pages',
     'gardens',
+    'websettings',
 ]
 
 MIDDLEWARE = [

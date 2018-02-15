@@ -33,6 +33,12 @@ class MaintenanceItemView(ListView):
     template_name = 'gardens/maintenanceitems.html'
 
     
+class MaintenanceItemDetailView(DetailView):
+    model = MaintenanceItem
+    template_name = 'gardens/maintenancedetails.html'
+    lookup_field = 'slug'
+
+    
 class GardenListFiltered(ListView):
     model = Garden
     template_name = 'gardens/list.html'

@@ -86,6 +86,10 @@ a {
     text-decoration: none;
     border-bottom: dotted 1px;
 
+    &.no-b {
+	border-bottom: none;
+    }
+
     &:hover {
 	color: _palette(accent, bg);
 	border-bottom-color: transparent;
