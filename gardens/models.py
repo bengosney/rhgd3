@@ -61,18 +61,6 @@ class MaintenancePhoto(models.Model):
         verbose_name = _('Photo')
         verbose_name_plural = _('Photos')
 
-
-    def save(self, *args, **kwargs):
-        if self.is_hero:
-            try:
-                temp = GardenPhoto.objects.get(is_hero=True, garden=self.garden)
-                if self != temp:
-                    temp.is_hero = False
-                    temp.save()
-            except GardenPhoto.DoesNotExist:
-                pass
-        super(GardenPhoto, self).save(*args, **kwargs)
-
         
 class WorkType(statusMixin, models.Model):
     title = models.CharField(max_length=150)
