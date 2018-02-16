@@ -296,3 +296,6 @@ class HomePagePod(statusMixin, models.Model):
         verbose_name = _('Home Page Pod')
         verbose_name_plural = _('Home Page Pods')
 
+    def url(self):
+        return self.link.url
+
