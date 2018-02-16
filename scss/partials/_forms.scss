@@ -3,3 +3,10 @@
 	width: 50%;
     }
 }
+
+form {
+    label {
+	float: left;
+	width: calc(100% - 20px);   
+    }
+}

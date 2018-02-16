@@ -1596,3 +1596,14 @@ body {
 	margin-top: -(($line-height - $font-size) / 2);
     }
 }
+
+form {
+    input[type=checkbox] {
+	vertical-align: top;
+    }
+    
+    label {
+	display: inline-block;
+	width: calc(100% - 40px);   
+    }
+}

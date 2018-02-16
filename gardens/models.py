@@ -51,11 +51,6 @@ class MaintenancePhoto(models.Model):
     large = ImageRatioField('image', '675x500')
     thumbnail = ImageRatioField('image', '170x145')
     
-    
-    # Remove below and migrate
-    hero = ImageRatioField('image', '1600x484')
-    is_hero = models.BooleanField(_('Hero Image'))
-
     position = models.PositiveIntegerField(default=0, blank=False, null=False)
 
     def __str__(self):

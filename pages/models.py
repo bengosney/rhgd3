@@ -247,6 +247,7 @@ class ContactSubmission(models.Model):
     phone = models.CharField(_("Phone"), max_length=100, blank=True, null=True)
     email = models.EmailField(_("Email"))
     enquiry = models.TextField(_("Enquiry"))
+    consent = models.BooleanField(_("I am over 18 and I give consent for data I enter into this form to be use to respond to my enquiry."))
 
     created = fields.CreationDateTimeField()
 

@@ -20,3 +20,7 @@ class ContactForm(forms.ModelForm):
           'enquiry': forms.Textarea(attrs={'rows':5, 'cols':40}),
         }
 
+    def clean(self):
+        cleaned_data = super(ContactForm, self).clean()
+        if cleaned_data['consent'] == False:
+            raise forms.ValidationError("You need to give us concent to collect your details so we can answer your enquiry")
