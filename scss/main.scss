@@ -1593,6 +1593,6 @@ body {
 	$line-height: $font-size * 1.5;
 	font-size: $font-size;
 	line-height: $line-height;
-	margin-top: -($line-height - $font-size);
+	margin-top: -(($line-height - $font-size) / 2);
     }
 }
