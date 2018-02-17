@@ -1660,3 +1660,15 @@ form {
 	}
     }
 }
+
+.maintenance-row {
+    display: flex;
+    flex-wrap: wrap;
+
+    .maintenanceitem {
+	> div {
+	    padding-bottom: 2em;
+	    border-bottom: 1px dotted #474747;
+	}
+    }
+}
