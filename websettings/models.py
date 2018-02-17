@@ -14,5 +14,7 @@ class setting(models.Model):
             obj = setting.objects.get(title=title)           
             return obj.value
         except ObjectDoesNotExist:
+            obj = setting(title=title, value="")
+            obj.save()
             return ""
 
