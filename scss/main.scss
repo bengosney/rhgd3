@@ -90,9 +90,17 @@ a {
 	border-bottom: none;
     }
 
+    svg {
+	transition: fill .2s ease;
+    }
+
     &:hover {
 	color: _palette(accent, bg);
 	border-bottom-color: transparent;
+
+	svg {
+	    fill: _palette(accent, bg);
+	}
     }
 }
 
