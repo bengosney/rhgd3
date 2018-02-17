@@ -3,6 +3,7 @@
   {% csrf_token %}
 
   <div class="row 50%">
+    {{ form.non_field_errors }}
     {% for field in form %}
     <div class="fieldWrapper {{ field.id_for_label }} 12u">
       {{ field.errors }}
