@@ -7,7 +7,7 @@ from image_cropping import ImageCroppingMixin
 from modulestatus.admin import statusAdmin
 
 from .models import ContactSubmission, Page, Empty, ModuleList, \
-    ExternalLink, SocialLink, node, HomePageHeader, HomePagePod
+    ExternalLink, node, HomePageHeader, HomePagePod
 
 
 class BaseChildAdmin(PolymorphicMPTTChildModelAdmin):
@@ -54,7 +54,6 @@ class TreeNodeParentAdmin(PolymorphicMPTTParentModelAdmin):
         (Empty, BaseChildNoSEOAdmin),
         (ModuleList, ModuleListAdmin),
         (ExternalLink, BaseChildNoSEOAdmin),
-        (SocialLink, BaseChildNoSEOAdmin),
     )
 
     list_display = ('title', 'actions_column',)

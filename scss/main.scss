@@ -1611,3 +1611,44 @@ form {
 	color: red;
     }
 }
+
+.icon {
+    display: inline-block;
+    height: 1em;    
+    vertical-align: middle;
+    margin-top: -.2em;
+
+    svg {
+	height: 100%;
+	display: block;
+    }
+}
+
+#nav {
+    .icon {
+	svg {
+	    path: #fff;
+	    fill: silver;
+	    transition: fill .2s ease;
+	}
+    }
+
+    a:hover {
+	svg {
+	    fill: #fff;
+	}
+    }
+
+    .icon-only {
+	a {
+	    padding: 0;
+	}
+	span {
+	    display: none;
+	}
+
+	+ .icon-only {
+	    margin-left: .5em;
+	}
+    }
+}

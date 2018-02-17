@@ -47,7 +47,16 @@
 	      <h3>Navigation</h3>
 	      <ul class="links">
 		{% recursetree nav_items %}
-		<li><a href="{{ node.url }}">{{ node.nav_title_actual }}</a></li>
+		<li class="{{ node.nav_class }}">
+		  <a href="{{ node.url }}">
+		    {% if node.nav_icon %}
+		    <div class="icon">
+		      {% include "icons/"|add:node.nav_icon|add:".svg" %}
+		    </div>
+		    {% endif %}
+		    <span>{{ node.nav_title_actual }}</span>
+		  </a>
+		</li>
 		{% endrecursetree %}
 	      </ul>
 	    </section>

@@ -111,6 +111,17 @@ class node(PolymorphicMPTTModel, statusMixin):
 
         return url
 
+    def nav_class(self):
+        classes = [self.__class__.__name__]
+
+        if self.nav_icon:
+            classes.append("icon-{}".format(str(self.nav_icon)))
+
+        if self.nav_icon_only:
+            classes.append("icon-only")
+            
+        return " ".join(classes)
+    
     @property
     def nav_title_actual(self):
         if self.nav_title:
@@ -158,25 +169,6 @@ class ExternalLink(node):
     @property
     def url(self):
         return self.URL
-
-
-class SocialLink(node):
-    TYPES = [
-
-        ('twitter', 'Twitter'),
-        ('facebook', 'Facebook'),
-        ('instagram', 'Instagram'),
-        ('linkedin', 'LinkedIn'),
-    ]
-
-    social = models.CharField(_("Social Type"), choices=TYPES, max_length=200)
-
-    class Meta(PolymorphicMPTTModel.Meta):
-        verbose_name = _("Social Link")
-        verbose_name_plural = _("Social Links")
-
-    def __str__(self):
-        return self.social
 
 
 class Page(node):

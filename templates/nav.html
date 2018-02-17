@@ -1,3 +1,4 @@
+{% load staticfiles %}
 {% load mptt_tags %}
 {% block nav %}
 <nav id="nav">
@@ -13,7 +14,14 @@
 	{{ children }}
       </ul>
       {% else %}
-      <a href="{{ node.url }}">{{ node.nav_title_actual }}</a>
+      <a href="{{ node.url }}">
+	{% if node.nav_icon %}
+	<div class="icon">
+	  {% include "icons/"|add:node.nav_icon|add:".svg" %}
+	</div>
+	{% endif %}
+	<span>{{ node.nav_title_actual }}</span>	
+      </a>
       {% endif %}
     </li>
     {% endrecursetree %}
