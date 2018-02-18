@@ -43,6 +43,13 @@ class MaintenanceItem(statusMixin, models.Model):
             
         return reverse_lazy('gardens:MaintenanceItemDetailView', kwargs={'slug': self.slug})
 
+    @property
+    def list_description(self):
+        if self.short_description != "":
+            return "<p>{}</p>".format(self.short_description)
+        else:
+            return self.description
+
     
 class MaintenancePhoto(models.Model):
     MaintenanceItem = models.ForeignKey(MaintenanceItem)    

@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django import forms
 
 from adminsortable2.admin import SortableAdminMixin, SortableInlineAdminMixin
 from image_cropping import ImageCroppingMixin
@@ -51,6 +52,13 @@ class MaintenanceItemAdmin(
 
     class Media:
         js = ('pages/js/ckeditor.js',)
+
+    def formfield_for_dbfield(self, db_field, **kwargs):
+        formfield = super().formfield_for_dbfield(db_field, **kwargs)
+        if db_field.name == 'short_description':
+            formfield.widget = forms.Textarea(attrs=formfield.widget.attrs)
+            
+        return formfield
 
         
 class TypeAdmin(admin.ModelAdmin):
