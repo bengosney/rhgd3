@@ -1603,6 +1603,10 @@ body {
 	line-height: $line-height;
 	margin-top: -(($line-height - $font-size) / 2);
     }
+
+    p, h2 {
+	margin-bottom: .5em;
+    }
 }
 
 form {
