@@ -14,12 +14,7 @@
 	{{ children }}
       </ul>
       {% else %}
-      <a href="{{ node.url }}">
-	{% if node.nav_icon %}
-	<div class="icon">
-	  {% include "icons/"|add:node.nav_icon|add:".svg" %}
-	</div>
-	{% endif %}
+      <a href="{{ node.url }}"{% if node.nav_icon %} class="fa fa-{{ node.nav_icon }}"{% endif %}>
 	<span>{{ node.nav_title_actual }}</span>	
       </a>
       {% endif %}
