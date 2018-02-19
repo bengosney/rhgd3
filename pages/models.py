@@ -22,10 +22,10 @@ import importlib
 
 class node(PolymorphicMPTTModel, statusMixin):
     ICONS = [
-        ('twitter', 'Twitter'),
-        ('facebook', 'Facebook'),
+        ('twitter-square', 'Twitter'),
+        ('facebook-square', 'Facebook'),
         ('instagram', 'Instagram'),
-        ('linkedin', 'LinkedIn'),
+        ('linkedin-square', 'LinkedIn'),
     ]
 
     parent = PolymorphicTreeForeignKey(
