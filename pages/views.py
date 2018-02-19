@@ -62,8 +62,8 @@ class DetailFormView(GenericModelView):
         email = EmailMessage(
             "New contact form submission",
             content,
-            'bengosney@googlemail.com',
-            ['bengosney@googlemail.com'],
+            'contact@rhgdesign.co.uk',
+            ['bengosney@googlemail.com', 'rhoeller@hotmail.co.uk'],
             headers = {'Reply-To': self.object.email }
         )
         email.send()
