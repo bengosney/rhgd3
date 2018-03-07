@@ -84,6 +84,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
     'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
+    'rhgdesign.middleware.ProperURLMiddleware',
+    'rhgdesign.middleware.ClacksOverhead',
 ]
 
 ROOT_URLCONF = 'rhgdesign.urls'
