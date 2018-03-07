@@ -16,10 +16,14 @@ class rhgdSitemap(Sitemap):
 
 
 class GardenSitemap(rhgdSitemap):
+    priority = .75
+    
     def items(self):
         return Garden.objects.all()
 
 class MaintenanceSitemap(rhgdSitemap):
+    priority = 1
+    
     def items(self):
         return MaintenanceItem.objects.all()
 
