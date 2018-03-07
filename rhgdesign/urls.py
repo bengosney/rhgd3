@@ -18,10 +18,14 @@ from django.contrib import admin
 from django.conf import settings
 from django.views.static import serve
 
+from django.contrib.sitemaps.views import sitemap
+from .sitemaps import sitemaps
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^garden/', include('gardens.urls')),
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     url(r'^', include('pages.urls')),
 ]
 
