@@ -73,6 +73,13 @@ class WorkType(statusMixin, models.Model):
     title = models.CharField(max_length=150)
     slug = fields.AutoSlugField(populate_from='title')
     description = RichTextField(_("Description"))
+    
+    position = models.PositiveIntegerField(default=0)
+
+    class Meta(object):
+        ordering = ('position',)
+        verbose_name = _('Work Type')
+        verbose_name_plural = _('Work Types')
 
     def __str__(self):
         return self.title

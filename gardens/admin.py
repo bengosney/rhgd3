@@ -70,7 +70,7 @@ class MaintenanceItemAdmin(
         return formfield
 
         
-class TypeAdmin(admin.ModelAdmin):
+class TypeAdmin(SortableAdminMixin, admin.ModelAdmin):
     model = models.WorkType
 
     class Media:
