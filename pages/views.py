@@ -63,7 +63,7 @@ class DetailFormView(GenericModelView):
             "New contact form submission",
             content,
             'contact@rhgdesign.co.uk',
-            ['bengosney@googlemail.com', 'rhoeller@hotmail.co.uk', 'rhgd@outlook.com'],
+            ['rhgd@outlook.com'],
             headers = {'Reply-To': self.object.email }
         )
         email.send()
