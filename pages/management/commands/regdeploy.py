@@ -1,8 +1,12 @@
-from django.core.management.base import BaseCommand
-
-import requests
+# Standard Library
 import os
 import subprocess
+
+# Django
+from django.core.management.base import BaseCommand
+
+# Third Party
+import requests
 
 
 class Command(BaseCommand):
@@ -24,9 +28,9 @@ class Command(BaseCommand):
         }, timeout=3)
 
         if resp.status_code == 200:
-            print "Deploy recorded successfully."
+            print("Deploy recorded successfully.")
         else:
-            print "Error recording deploy:", resp.text
+            print("Error recording deploy:", resp.text)
 
     def handle(self, *args, **options):
         self.rollbar_record_deploy()

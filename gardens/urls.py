@@ -1,20 +1,26 @@
+# Django
+from django.urls import path
 
-from django.conf.urls import url
-
+# Locals
 from . import views
 
-app_name = 'gardens'
+app_name = "gardens"
+
 urlpatterns = [
-    url(r'^$',
+    path(
+        "",
         views.GardenList.as_view(),
-        name='GardenList'),
-    url(r'^(?P<slug>[\w-]+)/$',
+        name="GardenList"),
+    path(
+        "<slug:slug>",
         views.GardenDetail.as_view(),
-        name='GardenDetail'),
-    url(r'^filter/(?P<slug>[\w-]+)/$',
+        name="GardenDetail"),
+    path(
+        "filter/<slug:slug>/",
         views.GardenListFiltered.as_view(),
-        name='GardenListFiltered'),
-    url(r'^maintenance/(?P<slug>[\w-]+)/$',
+        name="GardenListFiltered"),
+    path(
+        "maintenance/<slug:slug>/",
         views.MaintenanceItemDetailView.as_view(),
-        name='MaintenanceItemDetailView'),
+        name="MaintenanceItemDetailView"),
 ]

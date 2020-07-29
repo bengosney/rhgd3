@@ -1,8 +1,10 @@
+# Standard Library
 from datetime import datetime, timedelta
 
+# Django
 from django.db import models
-from django.db.models import Q
 
+# Locals
 from . import ModelStatus
 
 
@@ -12,15 +14,16 @@ class statusManager(models.Manager):
             .get_queryset()\
             .filter(status=ModelStatus.LIVE_STATUS)
 
-    
+
 class statusDateManager(statusManager):
     def get_queryset(self):
         return super(statusManager, self)\
             .get_queryset()\
-            .filter(published_date__gte=datetime.now()-timedelta(days=-1))
-    
+            .filter(published_date__gte=datetime.now() - timedelta(days=-1))
+
 
 try:
+    # Third Party
     from polymorphic_tree.managers import PolymorphicMPTTModelManager
 
     class PolymorphicMPTTStatusManager(PolymorphicMPTTModelManager):

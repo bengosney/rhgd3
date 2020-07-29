@@ -1,5 +1,7 @@
+# Django
 from django import forms
 
+# Locals
 from .models import ContactSubmission
 
 
@@ -12,15 +14,16 @@ class ContactForm(forms.ModelForm):
 
         for field in self.fields:
             self.fields[field].widget.attrs['placeholder'] = self.fields[field].label
-    
+
     class Meta:
         model = ContactSubmission
         fields = '__all__'
         widgets = {
-          'enquiry': forms.Textarea(attrs={'rows':5, 'cols':40}),
+            'enquiry': forms.Textarea(attrs={'rows': 5, 'cols': 40}),
         }
 
     def clean(self):
         cleaned_data = super(ContactForm, self).clean()
-        if cleaned_data['consent'] == False:
-            raise forms.ValidationError("You need to give us concent to collect your details so we can answer your enquiry")
+        if not cleaned_data['consent']:
+            raise forms.ValidationError(
+                "You need to give us concent to collect your details so we can answer your enquiry")

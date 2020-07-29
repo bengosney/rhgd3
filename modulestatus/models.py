@@ -1,9 +1,12 @@
+# Future
 from __future__ import unicode_literals
 
+# Django
 from django.db import models
 
+# Locals
 from . import ModelStatus
-from .managers import statusManager, statusDateManager
+from .managers import statusDateManager, statusManager
 
 
 class statusMixin(models.Model):
@@ -23,6 +26,6 @@ class statusDateMixin(statusMixin):
     published = models.DateField()
 
     objects = statusDateManager()
-    
+
     class Meta:
         abstract = True

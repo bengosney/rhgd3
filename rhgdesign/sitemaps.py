@@ -1,8 +1,10 @@
+# Django
 from django.contrib.sitemaps import Sitemap
-from django.db.models import Q
 
-from pages.models import Page, ModuleList, node, ExternalLink, Empty
+# First Party
 from gardens.models import Garden, MaintenanceItem
+from pages.models import Empty, ExternalLink, node
+
 
 class rhgdSitemap(Sitemap):
     changefreq = "monthly"
@@ -17,22 +19,23 @@ class rhgdSitemap(Sitemap):
 
 class GardenSitemap(rhgdSitemap):
     priority = .75
-    
+
     def items(self):
         return Garden.objects.all()
 
+
 class MaintenanceSitemap(rhgdSitemap):
     priority = 1
-    
+
     def items(self):
         return MaintenanceItem.objects.all()
 
-    
+
 class PageSitemap(rhgdSitemap):
     def items(self):
         return node.objects.not_instance_of(ExternalLink, Empty)
 
-    
+
 sitemaps = {
     'pages': PageSitemap,
     'gardens': GardenSitemap,

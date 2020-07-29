@@ -13,21 +13,29 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include, handler404
-from django.contrib import admin
+# Django
 from django.conf import settings
+from django.conf.urls import include, url
+from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 from django.views.static import serve
 
-from django.contrib.sitemaps.views import sitemap
+# Locals
 from .sitemaps import sitemaps
 
-urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
-    url(r'^garden/', include('gardens.urls')),
-    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
-    url(r'^', include('pages.urls')),
-]
+urlpatterns = [url(r'^admin/',
+                   admin.site.urls),
+               url(r'^ckeditor/',
+                   include('ckeditor_uploader.urls')),
+               url(r'^garden/',
+                   include('gardens.urls')),
+               url(r'^sitemap\.xml$',
+                   sitemap,
+                   {'sitemaps': sitemaps},
+                   name='django.contrib.sitemaps.views.sitemap'),
+               url(r'^',
+                   include('pages.urls')),
+               ]
 
 if settings.DEBUG:
     urlpatterns += url(r'^media/(?P<path>.*)$',

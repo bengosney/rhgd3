@@ -1,6 +1,9 @@
+# Django
 from django.contrib import admin
 
+# Locals
 from . import models
+
 
 class SettingAdmin(admin.ModelAdmin):
     model = models.setting
