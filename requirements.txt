@@ -6,7 +6,7 @@ dj-database-url==0.4.2
 Django==1.11.3
 django-admin-sortable2==0.6.13
 django-appconf==1.0.1
-django-ckeditor==5.3.0
+django-ckeditor==5.9.0
 django-extensions==1.8.1
 django-image-cropping==1.0.4
 django-imagekit==4.0.1
