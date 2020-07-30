@@ -23,7 +23,7 @@ future==0.16.0
 gunicorn==19.7.1
 idna==2.6
 jmespath==0.9.3
-olefile==0.44
+olefile==0.46
 pilkit==2.0
 Pillow==4.2.1
 psycopg2-binary==2.8.5
