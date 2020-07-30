@@ -3,15 +3,17 @@ import string
 
 # Django
 from django.contrib.admin.sites import AdminSite
-from django.test import Client, TestCase
+from django.test import Client
 
 # Third Party
 from hypothesis import given
 from hypothesis.strategies import text
+from hypothesis.extra.django import TestCase
+
 
 # Locals
 from .admin import ContactAdmin
-from .models import ContactSubmission, Empty, Page, SocialLink
+from .models import ContactSubmission, Empty, Page
 
 
 def sane_text():
@@ -21,7 +23,6 @@ def sane_text():
     return text(
         min_size=1,
         max_size=255,
-        average_size=20,
         alphabet="%s%s" % (string.ascii_letters, string.digits)
     )
 
@@ -92,20 +93,6 @@ class PageMethodTests(TestCase):
         self.assertEqual(str(page), expected)
 
 
-class SocialMethodTests(TestCase):
-
-    def test_url(self):
-        """
-        Social URL
-        """
-
-        expected = 'facebook'
-        social = SocialLink(title=expected)
-        social.save()
-
-        self.assertEqual(social.url, '/%s/' % social.slug)
-
-
 class EmptyNodeMethodTests(TestCase):
 
     @given(sane_text())
@@ -129,19 +116,6 @@ class EmptyNodeMethodTests(TestCase):
         empty.save()
 
         self.assertEqual(empty.url, '#%s' % empty.slug)
-
-
-class SocialNodeMethodTests(TestCase):
-
-    @given(sane_text())
-    def test_str(self, expected):
-        """
-        _unicode_
-        """
-
-        empty = SocialLink(social=expected)
-
-        self.assertEqual(str(empty), expected)
 
 
 class ContactSubmissionMethodTest(TestCase):

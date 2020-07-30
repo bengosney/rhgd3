@@ -53,10 +53,10 @@ class ModuleListAdmin(BaseChildAdmin):
 class TreeNodeParentAdmin(PolymorphicMPTTParentModelAdmin):
     base_model = node
     child_models = (
-        (Page, BaseChildAdmin),
-        (Empty, BaseChildNoSEOAdmin),
-        (ModuleList, ModuleListAdmin),
-        (ExternalLink, BaseChildNoSEOAdmin),
+        Page,
+        Empty,
+        ModuleList,
+        ExternalLink,
     )
 
     list_display = ('title', 'actions_column',)

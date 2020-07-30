@@ -137,7 +137,7 @@ class Page(node):
     )
 
     body = RichTextField(_("Body"))
-    show_map = models.BooleanField(_("Show map"))
+    show_map = models.BooleanField(_("Show map"), default=False)
     form = models.CharField(max_length=100, blank=True, default="", choices=FORM_CHOICES)
     success_message = RichTextField(_("Success Message"), blank=True, default="")
 
