@@ -1,5 +1,5 @@
 # Django
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 from django.shortcuts import get_list_or_404
 
 # Third Party

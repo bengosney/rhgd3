@@ -2,7 +2,7 @@
 import os
 
 # Django
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
@@ -56,7 +56,7 @@ class MaintenanceItem(statusMixin, models.Model):
 
 
 class MaintenancePhoto(models.Model):
-    MaintenanceItem = models.ForeignKey(MaintenanceItem)
+    MaintenanceItem = models.ForeignKey(MaintenanceItem, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='uploads/maintenancephotos')
 
     large = ImageRatioField('image', '675x500')
@@ -121,7 +121,7 @@ class Garden(statusMixin, models.Model):
 
 
 class GardenPhoto(models.Model):
-    garden = models.ForeignKey(Garden)
+    garden = models.ForeignKey(Garden, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='uploads/gardens')
     main = ImageSpecField(source='image',
                           processors=[ResizeToFit(600, 400)],

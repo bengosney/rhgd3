@@ -2,7 +2,7 @@
 import importlib
 
 # Django
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.db import models
 from django.utils.functional import lazy
 from django.utils.translation import ugettext_lazy as _
@@ -30,7 +30,7 @@ class node(PolymorphicMPTTModel, statusMixin):
         ('linkedin-square', 'LinkedIn'),
     ]
 
-    parent = PolymorphicTreeForeignKey('self', blank=True, null=True, related_name='children', verbose_name=_('parent'))
+    parent = PolymorphicTreeForeignKey('self', blank=True, null=True, related_name='children', verbose_name=_('parent'), on_delete=models.SET_NULL)
     title = models.CharField(_("Title"), max_length=200)
 
     nav_title = models.CharField(_("Navigation Title"), max_length=200, blank=True, default="")
@@ -201,7 +201,7 @@ class HomePageHeader(models.Model):
     image = models.ImageField(upload_to='images')
     cropped = ImageRatioField('image', '1600x484')
     strapline = models.CharField(_("Strap Line"), max_length=200)
-    itemlink = models.ForeignKey(node, null=True, blank=True)
+    itemlink = models.ForeignKey(node, null=True, blank=True, on_delete=models.CASCADE)
     position = models.PositiveIntegerField(default=0, blank=False, null=False)
 
     def __str__(self):
@@ -223,7 +223,7 @@ class HomePagePod(statusMixin, models.Model):
     image = models.ImageField(upload_to='uploads/homepagepods', blank=True, default="")
     main = ImageSpecField(source='image', processors=[ResizeToFit(64, 64)], format='PNG')
 
-    link = models.ForeignKey(node)
+    link = models.ForeignKey(node, on_delete=models.CASCADE)
 
     created = fields.CreationDateTimeField()
     modified = fields.ModificationDateTimeField()
