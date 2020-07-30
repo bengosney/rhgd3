@@ -1,4 +1,5 @@
 asgiref==3.2.10
+attrs==19.3.0
 boto3==1.14.32
 botocore==1.17.32
 certifi==2020.6.20
@@ -22,13 +23,19 @@ docutils==0.16
 easy-thumbnails==2.7
 future==0.18.2
 gunicorn==20.0.4
+hypothesis==5.23.7
 idna==2.10
 jmespath==0.10.0
 olefile==0.46
 pilkit==2.0
 Pillow==7.2.0
+psycopg2-binary==2.8.5
 python-dateutil==2.8.1
 pytz==2020.1
 s3transfer==0.3.3
+six==1.15.0
+sorl-thumbnail==12.6.3
+sortedcontainers==2.2.2
 sqlparse==0.3.1
 urllib3==1.25.10
+whitenoise==5.1.0
