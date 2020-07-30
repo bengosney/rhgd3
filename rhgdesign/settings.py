@@ -129,6 +129,12 @@ DB_USER = DB_NAME
 DB_PASS = 'cJYuVv3uaBeP78Le'
 DB_HOST = 'localhost'
 
+if 'CIRCLECI' in os.environ:
+    DB_NAME = 'circle_test'
+    DB_USER = 'circleci'
+    DB_PASS = ''
+    DB_HOST = '127.0.0.1'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
