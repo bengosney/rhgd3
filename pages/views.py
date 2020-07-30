@@ -1,23 +1,25 @@
-from vanilla import DetailView, ListView, CreateView, GenericModelView, TemplateView
-
-from django.http import HttpResponseRedirect
-
-from django.shortcuts import render_to_response
-from django.template import RequestContext
+# Django
 from django.core.mail import EmailMessage
-
-from django.template import Context
+from django.http import HttpResponseRedirect
+from django.template import RequestContext
 from django.template.loader import get_template
 
-from .models import Page, ModuleList, HomePageHeader, HomePagePod
+# Third Party
+from vanilla import CreateView, DetailView, GenericModelView, ListView
+
+# First Party
 from gardens.models import Garden
 
-def error404(request):
-    response = render_to_response('pages/404.html', {},
-                                  context_instance=RequestContext(request))
-    response.status_code = 404
-    return response
+# Locals
+from .models import HomePageHeader, HomePagePod, ModuleList, Page
 
+#
+#def error404(request):
+#    response = render_to_response('pages/404.html', {},
+#                                  context_instance=RequestContext(request))
+#    response.status_code = 404
+#    return response
+#
 
 class DetailFormView(GenericModelView):
     success_url = None
@@ -44,7 +46,7 @@ class DetailFormView(GenericModelView):
         form = self.get_form(data=request.POST, files=request.FILES)
         if form.is_valid():
             return self.form_valid(form)
-        
+
         return self.form_invalid(form)
 
     def form_valid(self, form):
@@ -64,11 +66,10 @@ class DetailFormView(GenericModelView):
             content,
             'contact@rhgdesign.co.uk',
             ['rhgd@outlook.com'],
-            headers = {'Reply-To': self.object.email }
+            headers={'Reply-To': self.object.email}
         )
         email.send()
 
-        
         return HttpResponseRedirect(self.get_success_url())
 
     def form_invalid(self, form):
@@ -86,7 +87,7 @@ class DetailFormView(GenericModelView):
         cls = self.get_form_class()
         try:
             return cls(data=data, files=files, **kwargs)
-        except:
+        except BaseException:
             return None
 
     def get_success_url(self):
@@ -101,7 +102,7 @@ class PageView(DetailFormView):
     lookup_field = 'slug'
     form_class = None
 
-        
+
 class HomePage(ListView):
     model = Page
     template_name = 'pages/home.html'
@@ -119,7 +120,7 @@ class HomePage(ListView):
 class ContactView(CreateView):
     model = Page
     template_name = 'pages/contact.html'
-        
+
 
 class ModuleListView(DetailView):
     model = ModuleList
@@ -135,6 +136,7 @@ class ModuleListView(DetailView):
             view_class = getattr(view_class, part)
 
         context = super(self.__class__, self).get_context_data(**self.kwargs)
-        context['list_html'] = view_class.as_view()(self.request, **context).rendered_content
+        context['list_html'] = view_class.as_view()(
+            self.request, **context).rendered_content
 
         return context

@@ -1,23 +1,25 @@
+# Standard Library
+import importlib
+
+# Django
+from django.urls import reverse
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
-from django.core.urlresolvers import reverse
 from django.utils.functional import lazy
+from django.utils.translation import ugettext_lazy as _
 
-from django_extensions.db import fields
-
+# Third Party
 from ckeditor_uploader.fields import RichTextUploadingField as RichTextField
-from polymorphic_tree.models import PolymorphicMPTTModel
-from polymorphic_tree.models import PolymorphicTreeForeignKey
-
+from django_extensions.db import fields
 from image_cropping import ImageRatioField
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFit
+from polymorphic_tree.models import PolymorphicMPTTModel, PolymorphicTreeForeignKey
 
-from .decorators import get_registered_list_views
-
+# First Party
 from modulestatus.models import statusMixin
 
-import importlib
+# Locals
+from .decorators import get_registered_list_views
 
 
 class node(PolymorphicMPTTModel, statusMixin):
@@ -28,61 +30,18 @@ class node(PolymorphicMPTTModel, statusMixin):
         ('linkedin-square', 'LinkedIn'),
     ]
 
-    parent = PolymorphicTreeForeignKey(
-        'self',
-        blank=True,
-        null=True,
-        related_name='children',
-        verbose_name=_('parent')
-    )
+    parent = PolymorphicTreeForeignKey('self', blank=True, null=True, related_name='children', verbose_name=_('parent'), on_delete=models.SET_NULL)
+    title = models.CharField(_("Title"), max_length=200)
 
-    title = models.CharField(
-        _("Title"),
-        max_length=200
-    )
+    nav_title = models.CharField(_("Navigation Title"), max_length=200, blank=True, default="")
+    nav_icon = models.CharField(_("Navigation Icon"), choices=ICONS, max_length=200, blank=True, default="")
+    nav_icon_only = models.BooleanField(_("Icon Only"), default=False)
 
-    nav_title = models.CharField(
-        _("Navigation Title"),
-        max_length=200,
-        blank=True,
-        null=True
-    )
+    slug = fields.AutoSlugField(populate_from='title')
 
-    nav_icon = models.CharField(
-        _("Navigation Icon"),
-        choices=ICONS,
-        max_length=200,
-        blank=True,
-        null=True
-    )
-
-    nav_icon_only = models.BooleanField(
-        _("Icon Only"),
-        default=False
-    )
-
-    slug = fields.AutoSlugField(
-        populate_from='title'
-    )
-
-    title_tag = models.CharField(
-        _("Title Tag"),
-        max_length=200,
-        null=True,
-        blank=True
-    )
-
-    meta_description = models.TextField(
-        null=True,
-        blank=True
-    )
-
-    active_url_helper = models.CharField(
-        max_length=255,
-        null=True,
-        blank=True
-    )
-
+    title_tag = models.CharField(_("Title Tag"), max_length=200, blank=True, default="")
+    meta_description = models.TextField(blank=True, default="")
+    active_url_helper = models.CharField(max_length=255, blank=True, default="")
     is_home_page = models.BooleanField(default=False)
 
     created = fields.CreationDateTimeField()
@@ -106,7 +65,7 @@ class node(PolymorphicMPTTModel, statusMixin):
                 self.__class__.__name__.lower(),
                 kwargs={
                     'slug': self.slug})
-        except:
+        except BaseException:
             url = reverse('pages:page', kwargs={'slug': self.slug})
 
         return url
@@ -119,9 +78,9 @@ class node(PolymorphicMPTTModel, statusMixin):
 
         if self.nav_icon_only:
             classes.append("icon-only")
-            
+
         return " ".join(classes)
-    
+
     @property
     def nav_title_actual(self):
         if self.nav_title:
@@ -178,16 +137,12 @@ class Page(node):
     )
 
     body = RichTextField(_("Body"))
-    show_map = models.BooleanField(_("Show map"))
-    form = models.CharField(
-        max_length=100,
-        blank=True,
-        null=True,
-        choices=FORM_CHOICES)
-    success_message = RichTextField(
-        _("Success Message"), blank=True, null=True)
+    show_map = models.BooleanField(_("Show map"), default=False)
+    form = models.CharField(max_length=100, blank=True, default="", choices=FORM_CHOICES)
+    success_message = RichTextField(_("Success Message"), blank=True, default="")
 
     def getFormClass(self):
+        # Locals
         from . import forms
 
         return getattr(forms, self.form)
@@ -227,16 +182,11 @@ class ModuleList(node):
         instance = view_class()
 
         return instance
-"""
-    @property
-    def url(self):
-        instance = self.get_view_object()
-        return instance.url
-"""
+
 
 class ContactSubmission(models.Model):
     name = models.CharField(_("Name"), max_length=200)
-    phone = models.CharField(_("Phone"), max_length=100, blank=True, null=True)
+    phone = models.CharField(_("Phone"), max_length=100, blank=True, default="")
     email = models.EmailField(_("Email"))
     enquiry = models.TextField(_("Enquiry"))
     consent = models.BooleanField(_("I am over 18 and I give consent for data I enter into this form to be use to respond to my enquiry."))
@@ -251,7 +201,7 @@ class HomePageHeader(models.Model):
     image = models.ImageField(upload_to='images')
     cropped = ImageRatioField('image', '1600x484')
     strapline = models.CharField(_("Strap Line"), max_length=200)
-    itemlink = models.ForeignKey(node, null=True, blank=True)
+    itemlink = models.ForeignKey(node, null=True, blank=True, on_delete=models.CASCADE)
     position = models.PositiveIntegerField(default=0, blank=False, null=False)
 
     def __str__(self):
@@ -259,7 +209,7 @@ class HomePageHeader(models.Model):
 
     def admin_image(self):
         return '<img src="%s" height="75"/>' % self.image.url
-    
+
     admin_image.allow_tags = True
 
     class Meta(object):
@@ -270,12 +220,10 @@ class HomePagePod(statusMixin, models.Model):
     title = models.CharField(max_length=150)
     description = models.CharField(max_length=350)
 
-    image = models.ImageField(upload_to='uploads/homepagepods', blank=True, null=True)
-    main = ImageSpecField(source='image',
-                          processors=[ResizeToFit(64, 64)],
-                          format='PNG')
+    image = models.ImageField(upload_to='uploads/homepagepods', blank=True, default="")
+    main = ImageSpecField(source='image', processors=[ResizeToFit(64, 64)], format='PNG')
 
-    link = models.ForeignKey(node)
+    link = models.ForeignKey(node, on_delete=models.CASCADE)
 
     created = fields.CreationDateTimeField()
     modified = fields.ModificationDateTimeField()
@@ -291,4 +239,3 @@ class HomePagePod(statusMixin, models.Model):
 
     def url(self):
         return self.link.url
-

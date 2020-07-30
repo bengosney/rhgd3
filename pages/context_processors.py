@@ -1,7 +1,10 @@
-from .models import node
-from .forms import ContactForm
-
+# First Party
 from modulestatus import ModelStatus
+
+# Locals
+from .forms import ContactForm
+from .models import node
+
 
 def get_nav_items(request):
     nodes = node.objects.all().filter(status=ModelStatus.LIVE_STATUS)
@@ -30,10 +33,11 @@ def get_breadcrumbs(request):
         if nav_node.url == full_path:
             return nav_node.get_ancestors(include_self=True)
 
+
 def get_contact_form(request):
     return ContactForm()
 
-        
+
 def nav_items(request):
     return {
         'nav_items': get_nav_items(request),

@@ -5,7 +5,6 @@ from __future__ import unicode_literals
 from django.db import migrations
 from django.core.files.base import ContentFile
 
-#from gardens.models import MaintenanceItem, MaintenancePhoto
 
 def copy_images(apps, schema_editor):
 

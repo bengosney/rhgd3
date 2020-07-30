@@ -1,13 +1,16 @@
+# Django
 from django.contrib import admin
 
-from polymorphic_tree.admin import PolymorphicMPTTParentModelAdmin, \
-    PolymorphicMPTTChildModelAdmin
+# Third Party
 from adminsortable2.admin import SortableAdminMixin
 from image_cropping import ImageCroppingMixin
+from polymorphic_tree.admin import PolymorphicMPTTChildModelAdmin, PolymorphicMPTTParentModelAdmin
+
+# First Party
 from modulestatus.admin import statusAdmin
 
-from .models import ContactSubmission, Page, Empty, ModuleList, \
-    ExternalLink, node, HomePageHeader, HomePagePod
+# Locals
+from .models import ContactSubmission, Empty, ExternalLink, HomePageHeader, HomePagePod, ModuleList, Page, node
 
 
 class BaseChildAdmin(PolymorphicMPTTChildModelAdmin):
@@ -50,14 +53,14 @@ class ModuleListAdmin(BaseChildAdmin):
 class TreeNodeParentAdmin(PolymorphicMPTTParentModelAdmin):
     base_model = node
     child_models = (
-        (Page, BaseChildAdmin),
-        (Empty, BaseChildNoSEOAdmin),
-        (ModuleList, ModuleListAdmin),
-        (ExternalLink, BaseChildNoSEOAdmin),
+        Page,
+        Empty,
+        ModuleList,
+        ExternalLink,
     )
 
     list_display = ('title', 'actions_column',)
-    
+
 
 class ContactAdmin(admin.ModelAdmin):
     model = ContactSubmission
@@ -79,14 +82,14 @@ class HomePageHeaderAdmin(
     class Media:
         js = ('pages/js/ckeditor.js',)
 
-    
+
 class HomePagePodAdmin(SortableAdminMixin, statusAdmin, admin.ModelAdmin):
     model = HomePagePod
 
     class Media:
         js = ('pages/js/ckeditor.js',)
 
-    
+
 admin.site.register(node, TreeNodeParentAdmin)
 admin.site.register(ContactSubmission, ContactAdmin)
 admin.site.register(HomePageHeader, HomePageHeaderAdmin)

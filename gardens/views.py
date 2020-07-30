@@ -1,9 +1,16 @@
-from vanilla import DetailView, ListView
-from .models import Garden, WorkType, MaintenanceItem
-from pages.decorators import register_list_view
-from django.core.urlresolvers import reverse_lazy
-from django.http import Http404
+# Django
+from django.urls import reverse_lazy
 from django.shortcuts import get_list_or_404
+
+# Third Party
+from vanilla import DetailView, ListView
+
+# First Party
+from pages.decorators import register_list_view
+
+# Locals
+from .models import Garden, MaintenanceItem, WorkType
+
 
 @register_list_view
 class GardenList(ListView):
@@ -16,7 +23,8 @@ class GardenList(ListView):
 
     def get_queryset(self):
         try:
-            return get_list_or_404(Garden, work_type__slug=self.kwargs["filter_val"])
+            return get_list_or_404(
+                Garden, work_type__slug=self.kwargs["filter_val"])
         except KeyError:
             return super(GardenList, self).get_queryset()
 
@@ -26,26 +34,27 @@ class GardenList(ListView):
 
         return context
 
-    
+
 @register_list_view
 class MaintenanceItemView(ListView):
     model = MaintenanceItem
     template_name = 'gardens/maintenanceitems.html'
 
-    
+
 class MaintenanceItemDetailView(DetailView):
     model = MaintenanceItem
     template_name = 'gardens/maintenancedetails.html'
     lookup_field = 'slug'
 
-    
+
 class GardenListFiltered(ListView):
     model = Garden
     template_name = 'gardens/list.html'
 
     def get_queryset(self):
         return Garden.objects.filter(work_type__slug=self.kwargs["slug"])
-    
+
+
 class GardenDetail(DetailView):
     model = Garden
     template_name = 'gardens/details.html'

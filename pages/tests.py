@@ -1,27 +1,28 @@
-from .admin import ContactAdmin
-
-from .models import (ContactSubmission,
-                     SocialLink,
-                     Empty,
-                     Page)
-
+# Standard Library
 import string
 
-from django.test import TestCase
-from django.test import Client
+# Django
 from django.contrib.admin.sites import AdminSite
+from django.test import Client
 
-from hypothesis.strategies import text
+# Third Party
 from hypothesis import given
+from hypothesis.strategies import text
+from hypothesis.extra.django import TestCase
+
+
+# Locals
+from .admin import ContactAdmin
+from .models import ContactSubmission, Empty, Page
 
 
 def sane_text():
+    # Third Party
     from hypothesis.strategies import text
 
     return text(
         min_size=1,
         max_size=255,
-        average_size=20,
         alphabet="%s%s" % (string.ascii_letters, string.digits)
     )
 
@@ -82,42 +83,17 @@ class PageMethodTests(TestCase):
         self.assertEqual(page.url, '/%s/' % page.slug)
 
     @given(sane_text())
-    def test_unicode(self, expected):
+    def test_str(self, expected):
         """
         _unicode_
         """
 
         page = Page(title=expected)
 
-        self.assertEqual(unicode(page), expected)
-
-
-class SocialMethodTests(TestCase):
-
-    def test_url(self):
-        """
-        Social URL
-        """
-
-        expected = 'facebook'
-        social = SocialLink(title=expected)
-        social.save()
-
-        self.assertEqual(social.url, '/%s/' % social.slug)
+        self.assertEqual(str(page), expected)
 
 
 class EmptyNodeMethodTests(TestCase):
-
-    @given(sane_text())
-    def test_unicode(self, expected):
-        """
-        _unicode_
-        """
-
-        empty = Empty(title=expected)
-
-        self.assertEqual(unicode(empty), '%s - Empty Node' % expected)
-
     def test_url(self):
         """
         Test the #URL
@@ -131,30 +107,17 @@ class EmptyNodeMethodTests(TestCase):
         self.assertEqual(empty.url, '#%s' % empty.slug)
 
 
-class SocialNodeMethodTests(TestCase):
-
-    @given(sane_text())
-    def test_unicode(self, expected):
-        """
-        _unicode_
-        """
-
-        empty = SocialLink(social=expected)
-
-        self.assertEqual(unicode(empty), expected)
-
-
 class ContactSubmissionMethodTest(TestCase):
 
     @given(sane_text())
-    def test_unicode(self, expected):
+    def test_str(self, expected):
         """
         _unicode_
         """
 
         name = ContactSubmission(name=expected)
 
-        self.assertEqual(unicode(name), expected)
+        self.assertEqual(str(name), expected)
 
 
 class ContactAdmminMethodTest(TestCase):
