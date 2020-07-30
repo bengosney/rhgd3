@@ -94,17 +94,6 @@ class PageMethodTests(TestCase):
 
 
 class EmptyNodeMethodTests(TestCase):
-
-    @given(sane_text())
-    def test_str(self, expected):
-        """
-        _unicode_
-        """
-
-        empty = Empty(title=expected)
-
-        self.assertEqual(str(empty), '%s - Empty Node' % expected)
-
     def test_url(self):
         """
         Test the #URL
