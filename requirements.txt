@@ -28,7 +28,6 @@ jmespath==0.10.0
 olefile==0.46
 pilkit==2.0
 Pillow==7.2.0
-pkg-resources==0.0.0
 python-dateutil==2.8.1
 pytz==2020.1
 PyYAML==5.3.1
