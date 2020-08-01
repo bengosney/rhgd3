@@ -1,7 +1,6 @@
 # Django
 from django.core.mail import EmailMessage
 from django.http import HttpResponseRedirect
-from django.template import RequestContext
 from django.template.loader import get_template
 
 # Third Party
@@ -14,12 +13,11 @@ from gardens.models import Garden
 from .models import HomePageHeader, HomePagePod, ModuleList, Page
 
 #
-#def error404(request):
+# def error404(request):
 #    response = render_to_response('pages/404.html', {},
 #                                  context_instance=RequestContext(request))
-#    response.status_code = 404
-#    return response
 #
+
 
 class DetailFormView(GenericModelView):
     success_url = None

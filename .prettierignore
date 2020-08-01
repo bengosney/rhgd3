@@ -8,3 +8,5 @@ js/external/**/*.js
 pages/static/pages/js/script.js
 js/build/**/*.js
 *.html
+**/static/**/*.js
+.baseline.json

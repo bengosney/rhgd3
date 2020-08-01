@@ -2,8 +2,6 @@
 
 import ckeditor_uploader.fields
 from django.db import migrations, models
-import django.db.models.deletion
-import polymorphic_tree.models
 
 
 class Migration(migrations.Migration):
