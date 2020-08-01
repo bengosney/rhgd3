@@ -3,7 +3,7 @@
   {% with garden.gardenphoto_set.all|first as image %}
   <a href="{{ garden.url }}">
     <span class="image left">
-      {% if image.main.url %}
+      {% if image.image %}
       <img src="{% cropped_thumbnail image "thumbnail" upscale=True %}" class="img-responsive" />
       {% else %}
       <img src="images/pic01.jpg" alt="" />

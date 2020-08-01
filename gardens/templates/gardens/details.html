@@ -34,7 +34,7 @@
 	<div class="7u 12u(narrower)">
 	  <div class="content cycle-slideshow" data-cycle-center-horz="true">
 	    {% for image in garden.gardenphoto_set.all %}
-	      <img src="{{ image.main.url }}" class="img-responsive" />
+	      <img src="{% thumbnail image.image 600x400 %}" class="img-responsive" />
 	    {% endfor %}
 	    <div class="cycle-pager"></div>
 	  </div>
