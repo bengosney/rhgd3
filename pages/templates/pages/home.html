@@ -26,7 +26,7 @@
       {% for pod in pods %}
       <section class="4u 12u(narrower)">
 	<div class="box highlight">
-	  <i class="icon major" style="background-image: url({{ pod.main.url }})"></i>
+	  <i class="icon major" style="background-image: url({% thumbnail pod.image 64x64 %})"></i>
 	  <h3>{{ pod.title }}</h3>
 	  <p>{{ pod.description }}</p>
 	  <a href="{{ pod.url }}" >Find out more</a>

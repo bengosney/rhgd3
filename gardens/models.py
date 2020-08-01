@@ -10,8 +10,6 @@ from django.utils.translation import ugettext_lazy as _
 from ckeditor_uploader.fields import RichTextUploadingField as RichTextField
 from django_extensions.db import fields
 from image_cropping import ImageRatioField
-from imagekit.models import ImageSpecField
-from imagekit.processors import ResizeToFit
 
 # First Party
 from modulestatus.models import statusMixin
@@ -123,10 +121,6 @@ class Garden(statusMixin, models.Model):
 class GardenPhoto(models.Model):
     garden = models.ForeignKey(Garden, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='uploads/gardens')
-    main = ImageSpecField(source='image',
-                          processors=[ResizeToFit(600, 400)],
-                          format='JPEG',
-                          options={'quality': 70})
 
     thumbnail = ImageRatioField('image', '160x145')
     hero = ImageRatioField('image', '1600x484')

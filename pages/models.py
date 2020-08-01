@@ -11,8 +11,6 @@ from django.utils.translation import ugettext_lazy as _
 from ckeditor_uploader.fields import RichTextUploadingField as RichTextField
 from django_extensions.db import fields
 from image_cropping import ImageRatioField
-from imagekit.models import ImageSpecField
-from imagekit.processors import ResizeToFit
 from polymorphic_tree.models import PolymorphicMPTTModel, PolymorphicTreeForeignKey
 
 # First Party
@@ -221,7 +219,6 @@ class HomePagePod(statusMixin, models.Model):
     description = models.CharField(max_length=350)
 
     image = models.ImageField(upload_to='uploads/homepagepods', blank=True, default="")
-    main = ImageSpecField(source='image', processors=[ResizeToFit(64, 64)], format='PNG')
 
     link = models.ForeignKey(node, on_delete=models.CASCADE)
 
