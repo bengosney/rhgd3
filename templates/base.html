@@ -29,7 +29,9 @@
   <body>
     <div id="page-wrapper">
       <div id="header">
-	<h1><a href="/" id="logo">R H Garden Design</a></h1>
+	  {% block headertitle %}
+	<div class="title"><a href="/" id="logo">R H Garden Design</a></div>
+	{% endblock %}
 	{% include "nav.html" %}
       </div>
       {% block content %}

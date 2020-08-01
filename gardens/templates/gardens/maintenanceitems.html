@@ -18,7 +18,7 @@
 		    <a href="{{ item.url }}" class="no-b">
 		      {% with item.maintenancephoto_set.all|first as image %}
 		      {% if image.image.url %}
-		      <img src="{% cropped_thumbnail image "thumbnail" upscale=True %}" class="img-responsive image" />
+		      <img src="{% cropped_thumbnail image "thumbnail" upscale=True %}" alt="{{ item.title }}" class="img-responsive image" />
 		      {% else %}
 		      <p>No Image</p>
 		      {% endif %}

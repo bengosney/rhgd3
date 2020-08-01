@@ -11,7 +11,7 @@
     <div class="container">
       <header>
 	{% if garden.gardenphoto_hero_set.all|length == 0 %}
-	  <h2>{{ maintenanceitem.title }}</h2>
+	  <h1 id="main_header">{{ maintenanceitem.title }}</h1>
 	  <p>{{ garden.sub_title }}</p>	  
 	{% endif %}
       </header>
@@ -19,7 +19,7 @@
 	<div class="7u 12u(narrower)">
 	  <div class="content cycle-slideshow" data-cycle-center-horz="true">
 	    {% for image in maintenanceitem.maintenancephoto_set.all %}
-	      <img src="{% cropped_thumbnail image "large" upscale=True %}" class="img-responsive" />
+	      <img src="{% cropped_thumbnail image "large" upscale=True %}" alt="{{ item.title }}" class="img-responsive" />
 	    {% endfor %}
 	    <div class="cycle-pager"></div>
 	  </div>

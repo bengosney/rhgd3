@@ -4,7 +4,7 @@
   <a href="{{ garden.url }}">
     <span class="image left">
       {% if image.image %}
-      <img src="{% cropped_thumbnail image "thumbnail" upscale=True %}" class="img-responsive" />
+      <img src="{% cropped_thumbnail image "thumbnail" upscale=True %}" alt="Photo of {{ garden.title }}" class="img-responsive" />
       {% else %}
       <img src="images/pic01.jpg" alt="" />
       {% endif %}
