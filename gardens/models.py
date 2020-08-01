@@ -122,6 +122,7 @@ class GardenPhoto(models.Model):
     garden = models.ForeignKey(Garden, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='uploads/gardens')
 
+    main = ImageRatioField('image', '600x400')
     thumbnail = ImageRatioField('image', '160x145')
     hero = ImageRatioField('image', '1600x484')
     is_hero = models.BooleanField(_('Hero Image'))
