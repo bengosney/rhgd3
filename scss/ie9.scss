@@ -1,6 +1,6 @@
-@import 'libs/vars';
-@import 'libs/functions';
-@import 'libs/mixins';
+@import "libs/vars";
+@import "libs/functions";
+@import "libs/mixins";
 
 /*
 	Arcana by HTML5 UP
@@ -10,14 +10,14 @@
 
 /* Header */
 
-	#nav {
-		> ul {
-			> li {
-				&.current {
-					&:before {
-						display: none;
-					}
-				}
-			}
-		}
-	}
+#nav {
+  > ul {
+    > li {
+      &.current {
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+}

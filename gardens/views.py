@@ -1,6 +1,6 @@
 # Django
-from django.urls import reverse_lazy
 from django.shortcuts import get_list_or_404
+from django.urls import reverse_lazy
 
 # Third Party
 from vanilla import DetailView, ListView

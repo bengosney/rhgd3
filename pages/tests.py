@@ -7,9 +7,8 @@ from django.test import Client
 
 # Third Party
 from hypothesis import given
-from hypothesis.strategies import text
 from hypothesis.extra.django import TestCase
-
+from hypothesis.strategies import text
 
 # Locals
 from .admin import ContactAdmin

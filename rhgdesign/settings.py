@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'mptt',
     'adminsortable2',
     'sorl.thumbnail',
-    #'fontawesome',
+    # 'fontawesome',
     'modulestatus',
     'pages',
     'gardens',

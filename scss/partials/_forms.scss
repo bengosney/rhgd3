@@ -1,12 +1,13 @@
 #footer-contact {
-    .id_name, .id_phone {
-	width: 50%;
-    }
+  .id_name,
+  .id_phone {
+    width: 50%;
+  }
 }
 
 form {
-    label {
-	float: left;
-	width: calc(100% - 20px);   
-    }
+  label {
+    float: left;
+    width: calc(100% - 20px);
+  }
 }
