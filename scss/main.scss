@@ -611,7 +611,8 @@ input[type="button"],
     background-size: 100% 6em, 100% 6em, auto;
     background-repeat: no-repeat, no-repeat, repeat;
 
-    h1 {
+    .title {
+		@extend h1;
 	padding: 0 0 2.75em 0;
 	margin: 0;
 
@@ -622,7 +623,12 @@ input[type="button"],
             font-weight: 300;
             border: 0;
 	}
-    }
+	}
+}
+
+
+#main_header {
+	@extend h2;
 }
 
 #nav {
@@ -1485,7 +1491,7 @@ form {
 	    padding-bottom: 0;
 	}
 
-	h2, p {	   
+	h1, h2, p {	   
 	    line-height: 1em;
 	}
 
@@ -1493,8 +1499,9 @@ form {
 	    margin-bottom: 0;
 	}
 
-	h2 {
-	    margin-bottom: .5em;
+	h1, h2 {
+		margin-bottom: .5em;
+		font-size: 1.75em;
 	}
 
 	.container {
