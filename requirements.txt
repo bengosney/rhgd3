@@ -43,4 +43,4 @@ sortedcontainers==2.2.2
 sqlparse==0.3.1
 urllib3==1.25.10
 Werkzeug==1.0.1
-whitenoise==5.1.0
+whitenoise==5.2.0
