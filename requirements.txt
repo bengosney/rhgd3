@@ -41,6 +41,6 @@ six==1.15.0
 sorl-thumbnail==12.6.3
 sortedcontainers==2.3.0
 sqlparse==0.4.1
-urllib3==1.25.11
+urllib3==1.26.0
 Werkzeug==1.0.1
 whitenoise==5.2.0
