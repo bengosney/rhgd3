@@ -25,7 +25,7 @@ easy-thumbnails==2.7.1
 future==0.18.2
 gunicorn==20.0.4
 hypothesis==5.43.5
-idna==2.10
+idna==3.1
 jmespath==0.10.0
 olefile==0.46
 pilkit==2.0
