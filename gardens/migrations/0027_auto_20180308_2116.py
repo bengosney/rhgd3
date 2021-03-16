@@ -7,9 +7,7 @@ from django.db import migrations
 def fix_positions(apps, schema_editor):
     WorkType = apps.get_model('gardens', 'WorkType')
 
-    pos = 0
-    for item in  WorkType.objects.all():
-        pos += 1
+    for pos, item in enumerate(WorkType.objects.all(), start=1):
         item.position = pos
         item.save()
 
