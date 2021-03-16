@@ -177,9 +177,7 @@ class ModuleList(node):
     def get_view_object(self):
         module_name, class_name = self.module.rsplit(".", 1)
         view_class = getattr(importlib.import_module(module_name), class_name)
-        instance = view_class()
-
-        return instance
+        return view_class()
 
 
 class ContactSubmission(models.Model):

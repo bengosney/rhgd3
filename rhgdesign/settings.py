@@ -23,7 +23,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = '3zxyc$5xs3q7kj)m*1$8#b#w9mice9%)i#ci2$xt6+wczvu^5*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False if os.environ.get('ENV') == 'production' else True
+DEBUG = os.environ.get('ENV') != 'production'
 
 ALLOWED_HOSTS = ['*']
 
