@@ -36,7 +36,7 @@ pytz==2021.1
 PyYAML==5.4.1
 requests==2.25.1
 rollbar==0.15.2
-s3transfer==0.4.0
+s3transfer==0.4.1
 six==1.15.0
 sorl-thumbnail==12.7.0
 sortedcontainers==2.3.0
