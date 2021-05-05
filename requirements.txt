@@ -37,7 +37,7 @@ PyYAML==5.4.1
 requests==2.25.1
 rollbar==0.15.2
 s3transfer==0.4.2
-six==1.15.0
+six==1.16.0
 sorl-thumbnail==12.7.0
 sortedcontainers==2.3.0
 sqlparse==0.4.1
