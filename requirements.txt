@@ -42,5 +42,5 @@ sorl-thumbnail==12.7.0
 sortedcontainers==2.3.0
 sqlparse==0.4.1
 urllib3==1.26.4
-Werkzeug==1.0.1
+Werkzeug==2.0.0
 whitenoise==5.2.0
