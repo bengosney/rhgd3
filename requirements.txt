@@ -5,7 +5,7 @@ botocore==1.20.85
 certifi==2021.5.30
 chardet==4.0.0
 dj-database-url==0.5.0
-Django==3.2.3
+Django==3.2.4
 django-admin-sortable2==1.0
 django-appconf==1.0.4
 django-ckeditor==6.1.0
