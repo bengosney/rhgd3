@@ -49,6 +49,9 @@ class BaseChildNoSEOAdmin(BaseChildAdmin):
 class ModuleListAdmin(BaseChildAdmin):
     pass
 
+class ExternalLinkAdmin(BaseChildAdmin):
+    pass
+
 
 class TreeNodeParentAdmin(PolymorphicMPTTParentModelAdmin):
     base_model = node
@@ -97,3 +100,4 @@ admin.site.register(HomePagePod, HomePagePodAdmin)
 admin.site.register(Page, BaseChildAdmin)
 admin.site.register(Empty, BaseChildNoSEOAdmin)
 admin.site.register(ModuleList, ModuleListAdmin)
+admin.site.register(ExternalLink, BaseChildAdmin)
