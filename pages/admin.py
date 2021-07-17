@@ -10,7 +10,7 @@ from polymorphic_tree.admin import PolymorphicMPTTChildModelAdmin, PolymorphicMP
 from modulestatus.admin import statusAdmin
 
 # Locals
-from .models import ContactSubmission, ModuleDetail, Empty, ExternalLink, HomePageHeader, HomePagePod, ModuleList, SocialLink, Page, node
+from .models import ContactSubmission, Empty, ExternalLink, HomePageHeader, HomePagePod, ModuleList, Page, node
 
 
 class BaseChildAdmin(PolymorphicMPTTChildModelAdmin):
@@ -97,5 +97,3 @@ admin.site.register(HomePagePod, HomePagePodAdmin)
 admin.site.register(Page, BaseChildAdmin)
 admin.site.register(Empty, BaseChildNoSEOAdmin)
 admin.site.register(ModuleList, ModuleListAdmin)
-admin.site.register(ModuleDetails, ModuleDetailsAdmin)
-admin.site.register(SocialLink, BaseChildNoSEOAdmin)
