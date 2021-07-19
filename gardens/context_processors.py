@@ -8,5 +8,5 @@ def get_all_gardens(request):
 
 def items(request):
     return {
-        'all_gardens': get_all_gardens(request),
+        "all_gardens": get_all_gardens(request),
     }

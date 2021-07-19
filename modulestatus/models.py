@@ -1,5 +1,4 @@
 # Future
-from __future__ import unicode_literals
 
 # Django
 from django.db import models
@@ -10,10 +9,7 @@ from .managers import statusDateManager, statusManager
 
 
 class statusMixin(models.Model):
-    status = models.IntegerField(
-        choices=ModelStatus.STATUS_CHOICES,
-        default=ModelStatus.LIVE_STATUS
-    )
+    status = models.IntegerField(choices=ModelStatus.STATUS_CHOICES, default=ModelStatus.LIVE_STATUS)
 
     objects = statusManager()
     admin_objects = models.Manager()

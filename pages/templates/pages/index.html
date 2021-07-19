@@ -12,12 +12,12 @@
 	  <h1 id="main_header">{{ page.title }}</h1>
 	  <div class="body-content">{{ page.body|safe }}</div>
 	</div>
-	
+
 	{% if page.show_map and form or success_message %}
 	  <div class="row">
 	    <div class="6u 12u(narrower)">
 	  {% endif %}
-	  
+
 	  {% if form or success_message %}
 	    <div>
 	      <h3>Contact Us</h3>
@@ -25,14 +25,14 @@
 		<div class="success_message">
 		  {{ success_message|safe }}
 		</div>
-	      {% endif %}   
+	      {% endif %}
 	      {% if form %}
 		{% include "form_render.html" with form=form id="contact-form" action=page.url %}
 	      {% endif %}
 	    </div>
 	  {% endif %}
-	  
-	  
+
+
 	  {% if page.show_map and form or success_message %}
 	    </div>
 	    <div class="6u 12u(narrower)">

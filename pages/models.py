@@ -22,20 +22,27 @@ from .decorators import get_registered_list_views
 
 class node(PolymorphicMPTTModel, statusMixin):
     ICONS = [
-        ('twitter-square', 'Twitter'),
-        ('facebook-square', 'Facebook'),
-        ('instagram', 'Instagram'),
-        ('linkedin-square', 'LinkedIn'),
+        ("twitter-square", "Twitter"),
+        ("facebook-square", "Facebook"),
+        ("instagram", "Instagram"),
+        ("linkedin-square", "LinkedIn"),
     ]
 
-    parent = PolymorphicTreeForeignKey('self', blank=True, null=True, related_name='children', verbose_name=_('parent'), on_delete=models.SET_NULL)
+    parent = PolymorphicTreeForeignKey(
+        "self",
+        blank=True,
+        null=True,
+        related_name="children",
+        verbose_name=_("parent"),
+        on_delete=models.SET_NULL,
+    )
     title = models.CharField(_("Title"), max_length=200)
 
     nav_title = models.CharField(_("Navigation Title"), max_length=200, blank=True, default="")
     nav_icon = models.CharField(_("Navigation Icon"), choices=ICONS, max_length=200, blank=True, default="")
     nav_icon_only = models.BooleanField(_("Icon Only"), default=False)
 
-    slug = fields.AutoSlugField(populate_from='title')
+    slug = fields.AutoSlugField(populate_from="title")
 
     title_tag = models.CharField(_("Title Tag"), max_length=200, blank=True, default="")
     meta_description = models.TextField(blank=True, default="")
@@ -55,16 +62,12 @@ class node(PolymorphicMPTTModel, statusMixin):
     @property
     def url(self):
         if self.is_home_page:
-            return '/'
+            return "/"
 
         try:
-            url = reverse(
-                'pages:%s' %
-                self.__class__.__name__.lower(),
-                kwargs={
-                    'slug': self.slug})
+            url = reverse("pages:%s" % self.__class__.__name__.lower(), kwargs={"slug": self.slug})
         except BaseException:
-            url = reverse('pages:page', kwargs={'slug': self.slug})
+            url = reverse("pages:page", kwargs={"slug": self.slug})
 
         return url
 
@@ -95,7 +98,7 @@ class node(PolymorphicMPTTModel, statusMixin):
                     temp.save()
             except node.DoesNotExist:
                 pass
-        super(node, self).save(*args, **kwargs)
+        super().save(*args, **kwargs)
 
     @staticmethod
     def get_nav_tree():
@@ -103,17 +106,16 @@ class node(PolymorphicMPTTModel, statusMixin):
 
 
 class Empty(node):
-
     class Meta(PolymorphicMPTTModel.Meta):
         verbose_name = _("Empty Item")
         verbose_name_plural = _("Empty Items")
 
     def __unicode__(self):
-        return '%s - Empty Node' % self.title
+        return "%s - Empty Node" % self.title
 
     @property
     def url(self):
-        return '#%s' % self.slug
+        return "#%s" % self.slug
 
 
 class ExternalLink(node):
@@ -130,8 +132,8 @@ class ExternalLink(node):
 
 class Page(node):
     FORM_CHOICES = (
-        ('ContactForm', 'Contact Form'),
-        ('FosteringForm', 'Fostering Form'),
+        ("ContactForm", "Contact Form"),
+        ("FosteringForm", "Fostering Form"),
     )
 
     body = RichTextField(_("Body"))
@@ -147,7 +149,7 @@ class Page(node):
 
     @property
     def success_url(self):
-        return reverse('pages:page_success', kwargs={'slug': self.slug})
+        return reverse("pages:page_success", kwargs={"slug": self.slug})
 
     class Meta:
         verbose_name = _("Page")
@@ -160,15 +162,11 @@ class ModuleList(node):
         max_length=200,
     )
 
-    body = RichTextField(
-        _("Body"),
-        null=True,
-        blank=True
-    )
+    body = RichTextField(_("Body"), null=True, blank=True)
 
     def __init__(self, *args, **kwargs):
-        super(ModuleList, self).__init__(*args, **kwargs)
-        self._meta.get_field('module').choices = lazy(get_registered_list_views, list)()
+        super().__init__(*args, **kwargs)
+        self._meta.get_field("module").choices = lazy(get_registered_list_views, list)()
 
     class Meta:
         verbose_name = _("Module List")
@@ -185,7 +183,9 @@ class ContactSubmission(models.Model):
     phone = models.CharField(_("Phone"), max_length=100, blank=True, default="")
     email = models.EmailField(_("Email"))
     enquiry = models.TextField(_("Enquiry"))
-    consent = models.BooleanField(_("I am over 18 and I give consent for data I enter into this form to be use to respond to my enquiry."))
+    consent = models.BooleanField(
+        _("I am over 18 and I give consent for data I enter into this form to be use to respond to my enquiry.")
+    )
 
     created = fields.CreationDateTimeField()
 
@@ -194,8 +194,8 @@ class ContactSubmission(models.Model):
 
 
 class HomePageHeader(models.Model):
-    image = models.ImageField(upload_to='images')
-    cropped = ImageRatioField('image', '1600x484')
+    image = models.ImageField(upload_to="images")
+    cropped = ImageRatioField("image", "1600x484")
     strapline = models.CharField(_("Strap Line"), max_length=200)
     itemlink = models.ForeignKey(node, null=True, blank=True, on_delete=models.CASCADE)
     position = models.PositiveIntegerField(default=0, blank=False, null=False)
@@ -208,15 +208,15 @@ class HomePageHeader(models.Model):
 
     admin_image.allow_tags = True
 
-    class Meta(object):
-        ordering = ('position',)
+    class Meta:
+        ordering = ("position",)
 
 
 class HomePagePod(statusMixin, models.Model):
     title = models.CharField(max_length=150)
     description = models.CharField(max_length=350)
 
-    image = models.ImageField(upload_to='uploads/homepagepods', blank=True, default="")
+    image = models.ImageField(upload_to="uploads/homepagepods", blank=True, default="")
 
     link = models.ForeignKey(node, on_delete=models.CASCADE)
 
@@ -227,10 +227,10 @@ class HomePagePod(statusMixin, models.Model):
     def __str__(self):
         return self.title
 
-    class Meta(object):
-        ordering = ('position',)
-        verbose_name = _('Home Page Pod')
-        verbose_name_plural = _('Home Page Pods')
+    class Meta:
+        ordering = ("position",)
+        verbose_name = _("Home Page Pod")
+        verbose_name_plural = _("Home Page Pods")
 
     def url(self):
         return self.link.url

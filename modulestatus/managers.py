@@ -10,16 +10,12 @@ from . import ModelStatus
 
 class statusManager(models.Manager):
     def get_queryset(self):
-        return super(statusManager, self)\
-            .get_queryset()\
-            .filter(status=ModelStatus.LIVE_STATUS)
+        return super().get_queryset().filter(status=ModelStatus.LIVE_STATUS)
 
 
 class statusDateManager(statusManager):
     def get_queryset(self):
-        return super(statusManager, self)\
-            .get_queryset()\
-            .filter(published_date__gte=datetime.now() - timedelta(days=-1))
+        return super(statusManager, self).get_queryset().filter(published_date__gte=datetime.now() - timedelta(days=-1))
 
 
 try:
@@ -28,7 +24,8 @@ try:
 
     class PolymorphicMPTTStatusManager(PolymorphicMPTTModelManager):
         def get_queryset(self):
-            return super(PolymorphicMPTTStatusManager, self)\
-                .get_queryset().filter(status=ModelStatus.LIVE_STATUS)
+            return super().get_queryset().filter(status=ModelStatus.LIVE_STATUS)
+
+
 except ImportError:
     pass

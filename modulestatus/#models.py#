@@ -23,7 +23,7 @@ class statusDateMixin(statusMixin):
     published_date = models.DateField()
 
     objects = statusDateManager()
-    
+
     class Meta:
         abstract = True
 

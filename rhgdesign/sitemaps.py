@@ -8,7 +8,7 @@ from pages.models import Empty, ExternalLink, node
 
 class rhgdSitemap(Sitemap):
     changefreq = "monthly"
-    priority = .5
+    priority = 0.5
 
     def location(self, obj):
         return obj.url
@@ -18,7 +18,7 @@ class rhgdSitemap(Sitemap):
 
 
 class GardenSitemap(rhgdSitemap):
-    priority = .75
+    priority = 0.75
 
     def items(self):
         return Garden.objects.all()
@@ -37,7 +37,7 @@ class PageSitemap(rhgdSitemap):
 
 
 sitemaps = {
-    'pages': PageSitemap,
-    'gardens': GardenSitemap,
-    'maintenance': MaintenanceSitemap,
+    "pages": PageSitemap,
+    "gardens": GardenSitemap,
+    "maintenance": MaintenanceSitemap,
 }
