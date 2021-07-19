@@ -218,3 +218,5 @@ ROLLBAR = {
     'branch': 'master',
     'root': BASE_DIR,
 }
+
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
