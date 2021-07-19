@@ -25,3 +25,4 @@ sorl-thumbnail
 whitenoise
 pytest
 pytest-django
+pytest-cov

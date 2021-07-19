@@ -1,4 +1,4 @@
-.PHONY := install, install-dev, help, init, pre-init
+.PHONY := install, install-dev, help, init, pre-init, postgres, postgres-down, test
 .DEFAULT_GOAL := install-dev
 
 INS=$(wildcard requirements.*.in)
@@ -40,3 +40,6 @@ postgres-down:
 
 postgres: postgres-down
 	docker run --rm --name rhgd-postgres -p 5432:5432 -e POSTGRES_PASSWORD=cJYuVv3uaBeP78Le -e POSTGRES_USER=rhgdesign -d postgres
+
+test:
+	pytest --cov=. .
