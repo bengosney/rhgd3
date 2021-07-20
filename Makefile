@@ -1,9 +1,9 @@
-.PHONY := install, install-dev, help, init, pre-init, postgres, postgres-down, test
+.PHONY := install, install-dev, help, init, pre-init, postgres, postgres-down, test, pre-commit, postgres-import, dump
 .DEFAULT_GOAL := install-dev
 
 INS=$(wildcard requirements.*.in)
 REQS=$(subst in,txt,$(INS))
-HOOKS=$(.git/hooks/pre-commit)
+HOOKS=.git/hooks/pre-commit
 PGC_NAME=rhgd-postgres
 PG_PASSWORD=cJYuVv3uaBeP78Le
 PG_USERNAME=rhgdesign
@@ -33,13 +33,15 @@ install-dev: requirements.txt $(REQS) ## Install development requirements (defau
 $(HOOKS):
 	pre-commit install
 
+pre-commit: $(HOOKS)
+
 pre-init:
 	pip install wheel pip-tools
 
-init: pre-init install-dev $(HOOKS) postgres-import ## Initalise a dev enviroment
+init: pre-init install-dev pre-commit postgres-import ## Initalise a dev enviroment
 	@echo "Read to dev"
 
-postgres-down:
+postgres-down: ## Shutdown and remove the postgresql container
 	@echo "Stopping any excisting postgres containers"
 	@docker stop $(PGC_NAME) || true
 	@docker rm $(PGC_NAME) || true
@@ -48,13 +50,13 @@ $(DUMP_DIR):
 	mkdir -p $@
 	chown -R $(shell whoami) $@
 
-postgres: $(DUMP_DIR)
+postgres: $(DUMP_DIR) ## Start a postgresql docker container
 	docker container inspect $(PGC_NAME) 2>&1 > /dev/null || docker run --rm --name $(PGC_NAME) -v $(shell pwd)/$(DUMP_DIR):/dumps -p 5432:5432 -e POSTGRES_PASSWORD=$(PG_PASSWORD) -e POSTGRES_USER=$(PG_USERNAME) -d postgres
 
-postgres-import: postgres $(DUMP_DIR)
+postgres-import: postgres $(DUMP_DIR) ## Import the latest data dump
 	docker exec -it $(PGC_NAME) pg_restore --verbose --clean --no-acl --no-owner -h localhost -U $(PG_USERNAME) -d $(PG_DATABASE) /dumps/$(shell ls dumps | head -n 1)
 
-dump: $(DUMP_DIR)
+dump: $(DUMP_DIR) ## Take a database dump from Heroku
 	@cd $(DUMP_DIR) && \
 	echo "Creating backup" && \
 	heroku pg:backups:capture --app still-caverns-78460 && \
