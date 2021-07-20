@@ -477,3 +477,4 @@ fabric.properties
 latest.dump
 set_aws_creds
 .sass-cache
+dumps
