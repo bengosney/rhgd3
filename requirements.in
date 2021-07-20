@@ -1,3 +1,4 @@
+boto3
 dj-database-url
 Django
 django-admin-sortable2
