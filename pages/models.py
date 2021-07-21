@@ -1,5 +1,6 @@
 # Standard Library
 import importlib
+from datetime import datetime
 
 # Django
 from django.db import models
@@ -200,6 +201,9 @@ class HomePageHeader(models.Model):
     itemlink = models.ForeignKey(node, null=True, blank=True, on_delete=models.CASCADE)
     position = models.PositiveIntegerField(default=0, blank=False, null=False)
 
+    start = models.DateField(null=True, default=None)
+    end = models.DateField(null=True, default=None)
+
     def __str__(self):
         return self.strapline
 
@@ -210,6 +214,22 @@ class HomePageHeader(models.Model):
 
     class Meta:
         ordering = ("position",)
+
+    @classmethod
+    def getCurrentImage(cls):
+        today = datetime.today()
+
+        image = cls.objects.filter(
+            start__month__lte=today.month,
+            start__day__lte=today.day,
+            end__month__gte=today.month,
+            end__day__gte=today.day,
+        ).first()
+
+        if image is None:
+            image = cls.objects.all().first()
+
+        return image
 
 
 class HomePagePod(statusMixin, models.Model):

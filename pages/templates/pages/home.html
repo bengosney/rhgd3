@@ -13,16 +13,14 @@
 
 {% block content %}
 
-{% with headers|first as header %}
-<section id="banner" class="banner" style="background-image: url({% cropped_thumbnail header "cropped" upscale=True %});">
+<section id="banner" class="banner" style="background-image: url({% cropped_thumbnail header_image "cropped" upscale=True %});">
   <header>
-    {{ header.strapline }}
-    {% if header.itemlink %}
-    <a href="{{ header.itemlink.url }}" class="button">{{ header.itemlink.title }}</a>
+    {{ header_image.strapline }}
+    {% if header_image.itemlink %}
+    <a href="{{ header_image.itemlink.url }}" class="button">{{ header_image.itemlink.title }}</a>
     {% endif %}
   </header>
 </section>
-{% endwith %}
 
 <!-- Highlights -->
 <section class="wrapper style1">
