@@ -27,3 +27,4 @@ whitenoise
 pytest
 pytest-django
 pytest-cov
+Werkzeug
