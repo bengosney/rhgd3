@@ -3,7 +3,7 @@ from modulestatus import ModelStatus
 
 # Locals
 from .forms import ContactForm
-from .models import HomePageHeader, node
+from .models import node
 
 
 def get_nav_items(request):
@@ -43,21 +43,4 @@ def nav_items(request):
         "nav_items": get_nav_items(request),
         "breadcrumbs": get_breadcrumbs(request),
         "footer_contact_form": get_contact_form(request),
-    }
-
-
-def header_image(request):
-    image = HomePageHeader.getCurrentImage()
-
-    if image is not None:
-        return {
-            "header_image": image,
-            "header_image_url": image.image.url,
-            "header_image_position": image.position,
-        }
-
-    return {
-        "header_image": None,
-        "header_image_url": None,
-        "header_image_position": None,
     }

@@ -99,7 +99,6 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "pages.context_processors.nav_items",
-                "pages.context_processors.header_image",
                 "gardens.context_processors.items",
                 "banner_messages.context_processors.messages",
                 # 'django.core.context_processors.request',

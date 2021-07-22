@@ -107,7 +107,7 @@ class HomePage(ListView):
     def get_context_data(self, **kwargs):
         context = super(self.__class__, self).get_context_data(**kwargs)
         context["page"] = Page.objects.get(is_home_page=True)
-        context["headers"] = HomePageHeader.objects.all()
+        context["header_image"] = HomePageHeader.getCurrentImage()
         context["pods"] = HomePagePod.objects.all()
         context["garden_list"] = Garden.objects.order_by("position")[:4]
 
