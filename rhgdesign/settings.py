@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     "pages",
     "gardens",
     "websettings",
+    "banner_messages",
 ]
 
 MIDDLEWARE = [
@@ -100,6 +101,7 @@ TEMPLATES = [
                 "pages.context_processors.nav_items",
                 "pages.context_processors.header_image",
                 "gardens.context_processors.items",
+                "banner_messages.context_processors.messages",
                 # 'django.core.context_processors.request',
             ],
         },

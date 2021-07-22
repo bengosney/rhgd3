@@ -1,4 +1,4 @@
-.PHONY := install, install-dev, help, init, pre-init, postgres, postgres-down, test, pre-commit, postgres-import, dump
+.PHONY := install, install-dev, help, init, pre-init, postgres, postgres-down, test, pre-commit, postgres-import, dump, clean
 .DEFAULT_GOAL := install-dev
 
 INS=$(wildcard requirements.*.in)
@@ -63,6 +63,8 @@ dump: $(DUMP_DIR) ## Take a database dump from Heroku
 	echo "Downloading backup" && \
 	heroku pg:backups:download --app still-caverns-78460
 
+clean:
+	find . -name "*.pyc" -exec rm -f {} \;
 
 test:
 	pytest --cov=. .

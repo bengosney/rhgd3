@@ -12,7 +12,7 @@ from hypothesis.strategies import dates
 
 # First Party
 from modulestatus import ModelStatus
-from stef.test_helpers import postgres_text
+from rhgdesign.test_helpers import postgres_text
 
 # Locals
 from .apps import BannerMessagesConfig
