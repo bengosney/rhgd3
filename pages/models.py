@@ -1,3 +1,6 @@
+# Future
+from __future__ import annotations
+
 # Standard Library
 import importlib
 from datetime import datetime
@@ -216,7 +219,7 @@ class HomePageHeader(models.Model):
         ordering = ("position",)
 
     @classmethod
-    def getCurrentImage(cls):
+    def getCurrentImage(cls) -> HomePageHeader | None:
         today = datetime.today()
 
         image = cls.objects.filter(
@@ -227,7 +230,7 @@ class HomePageHeader(models.Model):
         ).first()
 
         if image is None:
-            image = cls.objects.all().first()
+            image = cls.objects.all().order_by("-start").first()
 
         return image
 
