@@ -41,6 +41,8 @@ pre-init:
 init: pre-init install-dev pre-commit postgres-import ## Initalise a dev enviroment
 	@echo "Read to dev"
 
+init-no-dev: pre-init install-dev pre-commit
+
 postgres-down: ## Shutdown and remove the postgresql container
 	@echo "Stopping any excisting postgres containers"
 	@docker stop $(PGC_NAME) || true

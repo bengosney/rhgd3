@@ -134,9 +134,11 @@ class HomePageHeaderTest(TestCase):
     def test_not_in_date(self):
         """Not having a homepageheader in date should return first header."""
 
-        HomePageHeader(strapline="test_no_date")
+        HomePageHeader(strapline="test_no_date").save()
         HomePageHeader(strapline="test_not_in_date", start=tomorrow, end=tomorrow).save()
-        self.assertEqual(HomePageHeader.getCurrentImage().strapline, "test_no_date")
+        homepageheader = HomePageHeader.getCurrentImage() or HomePageHeader()
+        self.assertIsNotNone(homepageheader)
+        self.assertEqual(homepageheader.strapline, "test_no_date")
 
     def test_single_day_homepageheader(self):
         """HomePageHeader with the same start and end should return an svg."""
