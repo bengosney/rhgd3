@@ -1550,11 +1550,7 @@ form {
 #map {
   height: 460px;
   height: 34vw;
-  background-image: url(
-    https://maps.googleapis.com/maps/api/staticmap?center=51.3714589,
-    -0.19725319999997737&zoom=11&scale=1&size=600x600&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7clabel:%7C51.3714589,
-    -0.19725319999997737
-  );
+  background-image: url("https://maps.googleapis.com/maps/api/staticmap?center=51.3714589,-0.19725319999997737&zoom=11&scale=1&size=600x600&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7clabel:%7C51.3714589,-0.19725319999997737");
   background-position: center;
   margin-bottom: 1em;
 }
@@ -1705,6 +1701,7 @@ body {
 }
 
 @import "imports";
+@import "partials/messages";
 
 .maintenanceitem {
   .main-title {

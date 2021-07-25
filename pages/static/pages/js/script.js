@@ -597,6 +597,7 @@ var skel=function(){"use strict";var t={breakpointIds:null,events:{},isInit:!1,o
 	};
 
 })(jQuery);
+
 ;/*!
 * jQuery Cycle2; version: 2.1.6 build: 20141007
 * http://jquery.malsup.com/cycle2/
@@ -678,6 +679,16 @@ $(document).on( 'cycle-pre-initialize', function( e, opts ) {
 });
 
 })(jQuery);
+
+;document.querySelectorAll('.messages .close_button').forEach((elem) => {
+    elem.addEventListener('click', (e) => {
+        const href = elem.getAttribute('href');
+
+        fetch(href);
+        elem.parentElement.remove();
+        e.preventDefault();
+    });
+});
 
 ;/*
 	Arcana by HTML5 UP
