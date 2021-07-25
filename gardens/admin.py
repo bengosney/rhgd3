@@ -24,11 +24,11 @@ class GardenAdmin(SortableAdminMixin, statusAdmin, ImageCroppingMixin, admin.Mod
     list_per_page = 25
 
     class Media:
-        js = ('pages/js/ckeditor.js',)
+        js = ("pages/js/ckeditor.js",)
 
     def formfield_for_dbfield(self, db_field, **kwargs):
         formfield = super().formfield_for_dbfield(db_field, **kwargs)
-        if db_field.name == 'short_description':
+        if db_field.name == "short_description":
             formfield.widget = forms.Textarea(attrs=formfield.widget.attrs)
 
         return formfield
@@ -45,11 +45,11 @@ class MaintenanceItemAdmin(SortableAdminMixin, statusAdmin, ImageCroppingMixin, 
     list_per_page = 25
 
     class Media:
-        js = ('pages/js/ckeditor.js',)
+        js = ("pages/js/ckeditor.js",)
 
     def formfield_for_dbfield(self, db_field, **kwargs):
         formfield = super().formfield_for_dbfield(db_field, **kwargs)
-        if db_field.name == 'short_description':
+        if db_field.name == "short_description":
             formfield.widget = forms.Textarea(attrs=formfield.widget.attrs)
 
         return formfield
@@ -59,7 +59,7 @@ class TypeAdmin(SortableAdminMixin, admin.ModelAdmin):
     model = models.WorkType
 
     class Media:
-        js = ('pages/js/ckeditor.js',)
+        js = ("pages/js/ckeditor.js",)
 
 
 admin.site.register(models.Garden, GardenAdmin)

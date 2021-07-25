@@ -1,0 +1,61 @@
+.messages {
+  background: _palette(accent, bg);
+}
+
+.message {
+  & + & {
+    border-top: 1px solid #fff;
+  }
+
+  summary {
+      font-weight: bold;
+  }
+
+  position: relative;
+  padding: 1em 0;
+  color: #fff;
+
+  details {
+    summary {
+      cursor: pointer;
+    }
+
+    .body {
+      p {
+        color: #fff;
+      }
+    }
+  }
+
+  .close_button {
+    $size: 1.25em;
+    width: $size;
+    height: $size;
+    float: right;
+    position: relative;
+    overflow: hidden;
+    transition: transform .5s ease-in-out;
+
+    &:hover {
+        transform: rotate(180deg);
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      top: 50%;
+      left: 0;
+      margin-top: -1px;
+      background: #fff;
+    }
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+}

@@ -14,10 +14,8 @@ class ClacksOverhead:
         self.get_response = get_response
 
     def __call__(self, request):
-        print('Clacks')
         response = self.get_response(request)
-
-        response['x-clacks-overhead'] = 'GNU Terry Pratchett'
+        response["x-clacks-overhead"] = "GNU Terry Pratchett"
 
         return response
 
@@ -30,13 +28,11 @@ class ProperURLMiddleware:
         response = self.get_response(request)
         current_site = get_current_site(request)
 
-        print(request.path)
-        if not settings.DEBUG and current_site.domain != request.get_host(
-        ) and not request.path.startswith('/admin'):
-            log_string = "Incorect url hit: {}".format(request.get_host())
-            logger.error(log_string)
-            print(log_string)
-            redir = "https://{}{}".format(current_site.domain, request.path)
+        host = request.get_host()
+        valid_hosts = ["testserver", current_site.domain]
+        if not settings.DEBUG and host not in valid_hosts and not request.path.startswith("/admin"):
+            redir = f"https://{current_site.domain}{request.path}"
+            logger.error(f"Incorect url hit: {request.get_host()}, redirecting to {redir}")
 
             return HttpResponseRedirect(redir)
 

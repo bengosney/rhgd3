@@ -1,0 +1,21 @@
+[project]
+name = "R H Garden Design"
+version = "3.0.1"
+description = "Corporate website for R H Garden Design"
+authors = [
+    "Ben Gosney <bengosney@googlemail.com>"
+]
+python = "^3.8"
+homepage = "https://www.rhgdesign.co.uk/"
+repository = "https://github.com/bengosney/rhgd3"
+
+[build-system]
+requires = ["setuptools", "wheel", "pip-tools"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 128
+target-version = ['py38']
+
+[tool.pycln]
+all = true

@@ -14,22 +14,28 @@ from .models import ContactSubmission, Empty, ExternalLink, HomePageHeader, Home
 
 
 class BaseChildAdmin(PolymorphicMPTTChildModelAdmin):
-    GENERAL_FIELDSET = (None, {
-        'fields': ('parent', 'status', 'title'),
-    })
+    GENERAL_FIELDSET = (
+        None,
+        {
+            "fields": ("parent", "status", "title"),
+        },
+    )
 
-    SEO_FIELDSET = ('SEO', {
-        'classes': ('grp-collapse grp-closed',),
-        'fields': ('title_tag', 'meta_description'),
-    })
+    SEO_FIELDSET = (
+        "SEO",
+        {
+            "classes": ("grp-collapse grp-closed",),
+            "fields": ("title_tag", "meta_description"),
+        },
+    )
 
-    NAV_FIELDSET = ('Navigation', {
-        'classes': ('grp-collapse grp-closed',),
-        'fields': ('nav_title',
-                   'nav_icon',
-                   'nav_icon_only',
-                   'active_url_helper'),
-    })
+    NAV_FIELDSET = (
+        "Navigation",
+        {
+            "classes": ("grp-collapse grp-closed",),
+            "fields": ("nav_title", "nav_icon", "nav_icon_only", "active_url_helper"),
+        },
+    )
 
     base_model = node
     base_fieldsets = (
@@ -39,7 +45,7 @@ class BaseChildAdmin(PolymorphicMPTTChildModelAdmin):
     )
 
     class Media:
-        js = ('pages/js/ckeditor.js',)
+        js = ("pages/js/ckeditor.js",)
 
 
 class BaseChildNoSEOAdmin(BaseChildAdmin):
@@ -48,6 +54,7 @@ class BaseChildNoSEOAdmin(BaseChildAdmin):
 
 class ModuleListAdmin(BaseChildAdmin):
     pass
+
 
 class ExternalLinkAdmin(BaseChildAdmin):
     pass
@@ -62,7 +69,10 @@ class TreeNodeParentAdmin(PolymorphicMPTTParentModelAdmin):
         ExternalLink,
     )
 
-    list_display = ('title', 'actions_column',)
+    list_display = (
+        "title",
+        "actions_column",
+    )
 
 
 class ContactAdmin(admin.ModelAdmin):
@@ -75,22 +85,22 @@ class ContactAdmin(admin.ModelAdmin):
         return False
 
 
-class HomePageHeaderAdmin(
-        SortableAdminMixin,
-        ImageCroppingMixin,
-        admin.ModelAdmin):
+class HomePageHeaderAdmin(SortableAdminMixin, ImageCroppingMixin, admin.ModelAdmin):
     model = HomePageHeader
-    list_display = ('admin_image', 'strapline',)
+    list_display = (
+        "admin_image",
+        "strapline",
+    )
 
     class Media:
-        js = ('pages/js/ckeditor.js',)
+        js = ("pages/js/ckeditor.js",)
 
 
 class HomePagePodAdmin(SortableAdminMixin, statusAdmin, admin.ModelAdmin):
     model = HomePagePod
 
     class Media:
-        js = ('pages/js/ckeditor.js',)
+        js = ("pages/js/ckeditor.js",)
 
 
 admin.site.register(node, TreeNodeParentAdmin)

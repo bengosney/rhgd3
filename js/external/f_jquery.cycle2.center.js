@@ -15,7 +15,7 @@ $(document).on( 'cycle-pre-initialize', function( e, opts ) {
     var timeout, timeout2;
 
     $(window).on( 'resize orientationchange load', resize );
-    
+
     opts.container.on( 'cycle-destroyed', destroy );
 
     opts.container.on( 'cycle-initialized cycle-slide-added cycle-slide-removed', function( e, opts, slideOpts, slide ) {
@@ -36,7 +36,7 @@ $(document).on( 'cycle-pre-initialize', function( e, opts ) {
     }
 
     function adjustAll() {
-        opts.slides.each( adjustSlide ); 
+        opts.slides.each( adjustSlide );
     }
 
     function adjustActive() {

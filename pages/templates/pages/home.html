@@ -13,16 +13,14 @@
 
 {% block content %}
 
-{% with headers|first as header %}
-<section id="banner" class="banner" style="background-image: url({% cropped_thumbnail header "cropped" upscale=True %});">
+<section id="banner" class="banner" style="background-image: url({% cropped_thumbnail header_image "cropped" upscale=True %});">
   <header>
-    {{ header.strapline }}
-    {% if header.itemlink %}
-    <a href="{{ header.itemlink.url }}" class="button">{{ header.itemlink.title }}</a>
+    {{ header_image.strapline }}
+    {% if header_image.itemlink %}
+    <a href="{{ header_image.itemlink.url }}" class="button">{{ header_image.itemlink.title }}</a>
     {% endif %}
   </header>
 </section>
-{% endwith %}
 
 <!-- Highlights -->
 <section class="wrapper style1">
@@ -31,7 +29,7 @@
       {% for pod in pods %}
       <section class="4u 12u(narrower)">
 	<div class="box highlight">
-	  <i class="icon major" style="background-image: url({% thumbnail pod.image 64x64 %})"></i>
+	  <i class="icon major" style="background-image: url({% thumbnail pod.image "64x64" format="PNG" %})"></i>
 	  <h3>{{ pod.title }}</h3>
 	  <p>{{ pod.description }}</p>
 	  <a href="{{ pod.url }}" >Find out more</a>

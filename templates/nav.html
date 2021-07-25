@@ -5,7 +5,7 @@
   <ul>
     {% recursetree nav_items %}
     <li class="{{ node.nav_class }}">
-      {% if not node.is_leaf_node %}	
+      {% if not node.is_leaf_node %}
       <a href="{{ node.url }}" data-toggle="dropdown" role="button" aria-expanded="false" >
 	{{ node.nav_title_actual }}
 	<i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -15,7 +15,7 @@
       </ul>
       {% else %}
       <a href="{{ node.url }}"{% if node.nav_icon %} class="fa fa-{{ node.nav_icon }}"{% endif %}>
-	<span>{{ node.nav_title_actual }}</span>	
+	<span>{{ node.nav_title_actual }}</span>
       </a>
       {% endif %}
     </li>
@@ -23,4 +23,3 @@
   </ul>
 </nav>
 {% endblock %}
-

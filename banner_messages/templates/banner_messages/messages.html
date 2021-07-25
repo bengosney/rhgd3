@@ -1,0 +1,19 @@
+{% if banner_messages %}
+    <div class="messages">
+        <div class="container">
+            {% for message in banner_messages %}
+                <div class="message">
+                    {% if message.dismissible %}
+                        <a href="{{ message.dismiss_url }}" class="close_button">Close</a>
+                    {% endif %}
+                    <details>
+                        <summary>
+                            {{ message.title }}
+                        </summary>
+                        <div class="body">{{ message.message|linebreaks }}</div>
+                    </details>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}

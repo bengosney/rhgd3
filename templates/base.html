@@ -22,11 +22,12 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      
+
       gtag('config', 'UA-5435768-3');
     </script>
   </head>
   <body>
+  {% include "banner_messages/messages.html" %}
     <div id="page-wrapper">
       <div id="header">
 	  {% block headertitle %}
@@ -44,7 +45,7 @@
 	    {% websetting "contact-number" as contact_number %}
 	    <h2>Are you ready to take your garden to the next level? Call us on {{ contact_number }}</h2>
 	    {% comment %}
-	    <a href="#" class="button">Contact Us</a>	    
+	    <a href="#" class="button">Contact Us</a>
 	    {% endcomment %}
 	  </header>
 	</div>
@@ -98,6 +99,6 @@
     <script src="{% static "pages/js/script.js" %}"></script>
     <!--[if lte IE 8]><script src=""{% static "pages/js/ie/respond.min.js" %}"></script><![endif]-->
     {% block footerjs %}
-    {% endblock %}    
+    {% endblock %}
   </body>
 </html>
