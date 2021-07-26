@@ -24,6 +24,16 @@ coverage==5.5
     # via pytest-cov
 dj-database-url==0.5.0
     # via -r requirements.in
+django==3.2.5
+    # via
+    #   -r requirements.in
+    #   django-admin-sortable2
+    #   django-appconf
+    #   django-extensions
+    #   django-mptt
+    #   django-polymorphic
+    #   django-storages
+    #   easy-thumbnails
 django-admin-sortable2==1.0
     # via -r requirements.in
 django-appconf==1.0.4
@@ -50,12 +60,12 @@ django-mptt==0.12.0
     # via
     #   -r requirements.in
     #   django-polymorphic-tree
-django-polymorphic-tree==2.0
-    # via -r requirements.in
 django-polymorphic==3.0.0
     # via
     #   -r requirements.in
     #   django-polymorphic-tree
+django-polymorphic-tree==2.0
+    # via -r requirements.in
 django-storages==1.11.1
     # via -r requirements.in
 django-tag-parser==3.2
@@ -64,20 +74,12 @@ django-tag-parser==3.2
     #   django-polymorphic-tree
 django-vanilla-views==3.0.0
     # via -r requirements.in
-django==3.2.5
-    # via
-    #   -r requirements.in
-    #   django-admin-sortable2
-    #   django-appconf
-    #   django-extensions
-    #   django-mptt
-    #   django-polymorphic
-    #   django-storages
-    #   easy-thumbnails
 easy-thumbnails==2.7.1
     # via -r requirements.in
 gunicorn==20.1.0
-hypothesis==6.14.3
+    # via -r requirements.in
+hypothesis==6.14.4
+    # via -r requirements.in
 idna==3.2
     # via requests
 iniconfig==1.1.1
@@ -102,15 +104,15 @@ py==1.10.0
     # via pytest
 pyparsing==2.4.7
     # via packaging
-pytest-cov==2.12.1
-    # via -r requirements.in
-pytest-django==4.4.0
-    # via -r requirements.in
 pytest==6.2.4
     # via
     #   -r requirements.in
     #   pytest-cov
     #   pytest-django
+pytest-cov==2.12.1
+    # via -r requirements.in
+pytest-django==4.4.0
+    # via -r requirements.in
 python-dateutil==2.8.2
     # via botocore
 pytz==2021.1
