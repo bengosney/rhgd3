@@ -30,7 +30,6 @@ django==3.2.6
     #   django-admin-sortable2
     #   django-appconf
     #   django-extensions
-    #   django-mptt
     #   django-polymorphic
     #   django-storages
     #   easy-thumbnails
@@ -56,7 +55,7 @@ django-js-asset==1.2.2
     #   -r requirements.in
     #   django-ckeditor
     #   django-mptt
-django-mptt==0.12.0
+django-mptt==0.13.0
     # via
     #   -r requirements.in
     #   django-polymorphic-tree
