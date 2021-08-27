@@ -55,7 +55,7 @@ django-js-asset==1.2.2
     #   -r requirements.in
     #   django-ckeditor
     #   django-mptt
-django-mptt==0.13.1
+django-mptt==0.13.2
     # via
     #   -r requirements.in
     #   django-polymorphic-tree
@@ -77,7 +77,7 @@ easy-thumbnails==2.7.1
     # via -r requirements.in
 gunicorn==20.1.0
     # via -r requirements.in
-hypothesis==6.15.0
+hypothesis==6.17.0
     # via -r requirements.in
 idna==3.2
     # via requests
