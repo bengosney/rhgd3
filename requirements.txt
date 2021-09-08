@@ -55,7 +55,7 @@ django-js-asset==1.2.2
     #   -r requirements.in
     #   django-ckeditor
     #   django-mptt
-django-mptt==0.13.2
+django-mptt==0.13.3
     # via
     #   -r requirements.in
     #   django-polymorphic-tree
