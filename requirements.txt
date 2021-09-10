@@ -77,7 +77,7 @@ easy-thumbnails==2.7.1
     # via -r requirements.in
 gunicorn==20.1.0
     # via -r requirements.in
-hypothesis==6.20.0
+hypothesis==6.20.1
     # via -r requirements.in
 idna==3.2
     # via requests
@@ -135,7 +135,7 @@ sorl-thumbnail==12.7.0
     # via -r requirements.in
 sortedcontainers==2.4.0
     # via hypothesis
-sqlparse==0.4.1
+sqlparse==0.4.2
     # via django
 toml==0.10.2
     # via
