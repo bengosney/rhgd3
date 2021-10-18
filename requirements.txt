@@ -10,9 +10,9 @@ attrs==21.2.0
     # via
     #   hypothesis
     #   pytest
-boto3==1.18.63
+boto3==1.18.64
     # via -r requirements.in
-botocore==1.21.63
+botocore==1.21.64
     # via
     #   boto3
     #   s3transfer
@@ -65,7 +65,7 @@ django-polymorphic==3.0.0
     #   django-polymorphic-tree
 django-polymorphic-tree==2.0
     # via -r requirements.in
-django-storages==1.12.1
+django-storages==1.12.2
     # via -r requirements.in
 django-tag-parser==3.2
     # via
@@ -73,7 +73,7 @@ django-tag-parser==3.2
     #   django-polymorphic-tree
 django-vanilla-views==3.0.0
     # via -r requirements.in
-easy-thumbnails==2.7.1
+easy-thumbnails==2.7.2
     # via -r requirements.in
 gunicorn==20.1.0
     # via -r requirements.in
