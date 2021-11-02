@@ -48,7 +48,7 @@ django-fontawesome==1.0
     # via -r requirements.in
 django-image-cropping==1.6.1
     # via -r requirements.in
-django-imagekit==4.0.2
+django-imagekit==4.1.0
     # via -r requirements.in
 django-js-asset==1.2.2
     # via
