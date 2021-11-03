@@ -22,6 +22,8 @@ charset-normalizer==2.0.7
     # via requests
 coverage[toml]==5.5
     # via pytest-cov
+cssselect2==0.4.1
+    # via svglib
 dj-database-url==0.5.0
     # via -r requirements.in
 django==3.2.9
@@ -73,7 +75,7 @@ django-tag-parser==3.2
     #   django-polymorphic-tree
 django-vanilla-views==3.0.0
     # via -r requirements.in
-easy-thumbnails==2.7.2
+easy-thumbnails==2.8
     # via -r requirements.in
 gunicorn==20.1.0
     # via -r requirements.in
@@ -87,6 +89,8 @@ jmespath==0.10.0
     # via
     #   boto3
     #   botocore
+lxml==4.6.4
+    # via svglib
 packaging==21.2
     # via pytest
 pilkit==2.0
@@ -95,6 +99,7 @@ pillow==8.4.0
     # via
     #   -r requirements.in
     #   easy-thumbnails
+    #   reportlab
 pluggy==1.0.0
     # via pytest
 psycopg2-binary==2.9.1
@@ -118,6 +123,10 @@ pytz==2021.3
     # via django
 pyyaml==6.0
     # via django-fontawesome
+reportlab==3.6.2
+    # via
+    #   easy-thumbnails
+    #   svglib
 requests==2.26.0
     # via
     #   -r requirements.in
@@ -137,6 +146,12 @@ sortedcontainers==2.4.0
     # via hypothesis
 sqlparse==0.4.2
     # via django
+svglib==1.1.0
+    # via easy-thumbnails
+tinycss2==1.1.0
+    # via
+    #   cssselect2
+    #   svglib
 toml==0.10.2
     # via
     #   coverage
@@ -145,6 +160,10 @@ urllib3==1.26.7
     # via
     #   botocore
     #   requests
+webencodings==0.5.1
+    # via
+    #   cssselect2
+    #   tinycss2
 werkzeug==2.0.2
     # via -r requirements.in
 whitenoise==5.3.0
