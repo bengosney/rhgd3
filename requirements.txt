@@ -61,11 +61,11 @@ django-mptt==0.13.4
     # via
     #   -r requirements.in
     #   django-polymorphic-tree
-django-polymorphic==3.0.0
+django-polymorphic==3.1.0
     # via
     #   -r requirements.in
     #   django-polymorphic-tree
-django-polymorphic-tree==2.0
+django-polymorphic-tree==2.1
     # via -r requirements.in
 django-storages==1.12.3
     # via -r requirements.in
@@ -79,7 +79,7 @@ easy-thumbnails==2.8
     # via -r requirements.in
 gunicorn==20.1.0
     # via -r requirements.in
-hypothesis==6.24.5
+hypothesis==6.24.6
     # via -r requirements.in
 idna==3.3
     # via requests
