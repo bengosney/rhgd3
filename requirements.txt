@@ -148,7 +148,7 @@ sqlparse==0.4.2
     # via django
 svglib==1.1.0
     # via easy-thumbnails
-tinycss2==1.1.0
+tinycss2==1.1.1
     # via
     #   cssselect2
     #   svglib
