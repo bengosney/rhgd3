@@ -123,7 +123,7 @@ pytz==2021.3
     # via django
 pyyaml==6.0
     # via django-fontawesome
-reportlab==3.6.2
+reportlab==3.6.3
     # via
     #   easy-thumbnails
     #   svglib
