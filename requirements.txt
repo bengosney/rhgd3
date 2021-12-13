@@ -79,7 +79,7 @@ easy-thumbnails==2.8
     # via -r requirements.in
 gunicorn==20.1.0
     # via -r requirements.in
-hypothesis==6.31.3
+hypothesis==6.31.4
     # via -r requirements.in
 idna==3.3
     # via requests
