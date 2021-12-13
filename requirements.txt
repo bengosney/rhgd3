@@ -89,7 +89,7 @@ jmespath==0.10.0
     # via
     #   boto3
     #   botocore
-lxml==4.6.4
+lxml==4.6.5
     # via svglib
 packaging==21.3
     # via pytest
