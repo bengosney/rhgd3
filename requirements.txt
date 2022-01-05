@@ -127,7 +127,7 @@ reportlab==3.6.5
     # via
     #   easy-thumbnails
     #   svglib
-requests==2.27.0
+requests==2.27.1
     # via
     #   -r requirements.in
     #   rollbar
