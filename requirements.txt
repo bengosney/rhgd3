@@ -156,7 +156,7 @@ toml==0.10.2
     # via
     #   coverage
     #   pytest
-urllib3==1.26.7
+urllib3==1.26.8
     # via
     #   botocore
     #   requests
