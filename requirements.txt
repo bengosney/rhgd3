@@ -146,7 +146,7 @@ sortedcontainers==2.4.0
     # via hypothesis
 sqlparse==0.4.2
     # via django
-svglib==1.1.0
+svglib==1.2.0
     # via easy-thumbnails
 tinycss2==1.1.1
     # via
