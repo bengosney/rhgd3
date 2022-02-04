@@ -108,7 +108,7 @@ py==1.11.0
     # via pytest
 pyparsing==3.0.7
     # via packaging
-pytest==6.2.5
+pytest==7.0.0
     # via
     #   -r requirements.in
     #   pytest-cov
@@ -153,9 +153,9 @@ tinycss2==1.1.1
     #   cssselect2
     #   svglib
 toml==0.10.2
-    # via
-    #   coverage
-    #   pytest
+    # via coverage
+tomli==2.0.0
+    # via pytest
 urllib3==1.26.8
     # via
     #   botocore
