@@ -10,9 +10,9 @@ attrs==21.4.0
     # via
     #   hypothesis
     #   pytest
-boto3==1.20.47
+boto3==1.20.48
     # via -r requirements.in
-botocore==1.23.47
+botocore==1.23.48
     # via
     #   boto3
     #   s3transfer
