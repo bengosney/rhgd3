@@ -133,7 +133,7 @@ requests==2.27.1
     #   rollbar
 rollbar==0.16.2
     # via -r requirements.in
-s3transfer==0.5.0
+s3transfer==0.5.1
     # via boto3
 six==1.16.0
     # via
