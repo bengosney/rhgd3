@@ -32,6 +32,7 @@ django==3.2.11
     #   django-admin-sortable2
     #   django-appconf
     #   django-extensions
+    #   django-js-asset
     #   django-polymorphic
     #   django-storages
     #   easy-thumbnails
@@ -52,7 +53,7 @@ django-image-cropping==1.7
     # via -r requirements.in
 django-imagekit==4.1.0
     # via -r requirements.in
-django-js-asset==1.2.2
+django-js-asset==2.0.0
     # via
     #   -r requirements.in
     #   django-ckeditor
