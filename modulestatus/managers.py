@@ -16,15 +16,16 @@ class statusManager(models.Manager):
 
 class statusDateManager(statusManager):
     def get_queryset(self) -> QuerySet:
-        return super().get_queryset().filter(published__lte=datetime.today().date())
+        return super().get_queryset().filter(published__lte=datetime.now().date())
 
 
 class statusDateRangeManager(statusManager):
     def get_queryset(self) -> QuerySet:
         filter = {
             "published_from__lte": datetime.today().date(),
-            "published_to__gte": datetime.today().date(),
+            "published_to__gte": datetime.now().date(),
         }
+
 
         return super().get_queryset().filter(**filter)
 
