@@ -10,7 +10,7 @@ attrs==21.4.0
     # via
     #   hypothesis
     #   pytest
-boto3==1.20.52
+boto3==1.20.53
     # via -r requirements.in
 botocore==1.23.53
     # via
