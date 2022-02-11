@@ -9,7 +9,7 @@ from datetime import datetime
 from django.db import models
 from django.urls import reverse
 from django.utils.functional import lazy
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 # Third Party
 from ckeditor_uploader.fields import RichTextUploadingField as RichTextField
