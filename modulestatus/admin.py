@@ -8,8 +8,7 @@ class statusAdmin:
     def get_queryset(self, request):
         qs = self.model.admin_objects.get_queryset()
 
-        ordering = self.ordering or ()
-        if ordering:
+        if ordering := self.ordering or ():
             qs = qs.order_by(*ordering)
 
         return qs
@@ -25,8 +24,7 @@ class statusDateAdmin:
     def get_queryset(self, request):
         qs = self.model.admin_objects.get_queryset()
 
-        ordering = self.ordering or ()
-        if ordering:
+        if ordering := self.ordering or ():
             qs = qs.order_by(*ordering)
 
         return qs
@@ -42,8 +40,7 @@ class statusDateRangeAdmin:
     def get_queryset(self, request):
         qs = self.model.admin_objects.get_queryset()
 
-        ordering = self.ordering or ()
-        if ordering:
+        if ordering := self.ordering or ():
             qs = qs.order_by(*ordering)
 
         return qs
