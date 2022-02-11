@@ -96,7 +96,7 @@ packaging==21.3
     # via pytest
 pilkit==2.0
     # via django-imagekit
-pillow==9.0.0
+pillow==9.0.1
     # via
     #   -r requirements.in
     #   easy-thumbnails
