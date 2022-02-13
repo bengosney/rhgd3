@@ -4,7 +4,6 @@ from __future__ import unicode_literals
 
 import ckeditor_uploader.fields
 from django.db import migrations, models
-import fontawesome.fields
 
 
 class Migration(migrations.Migration):
@@ -20,7 +19,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('status', models.IntegerField(choices=[(1, 'Published'), (3, 'Unpublished'), (2, 'Draft')], default=1)),
                 ('title', models.CharField(max_length=150)),
-                ('icon', fontawesome.fields.IconField(blank=True, max_length=60)),
+                ('icon', models.CharField(max_length=150)),
                 ('description', ckeditor_uploader.fields.RichTextUploadingField(verbose_name='Body')),
             ],
             options={

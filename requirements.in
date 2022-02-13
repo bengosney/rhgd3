@@ -5,7 +5,6 @@ django-admin-sortable2
 django-appconf
 django-ckeditor
 django-extensions
-django-fontawesome
 django-image-cropping
 django-imagekit
 django-js-asset
