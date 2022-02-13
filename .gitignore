@@ -478,3 +478,5 @@ latest.dump
 set_aws_creds
 .sass-cache
 dumps
+.envrc
+.direnv
