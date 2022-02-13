@@ -1,6 +1,6 @@
 # Django
 from django.conf import settings
-from django.conf.urls import include, url
+from django.conf.urls import include
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.urls import path
@@ -20,8 +20,8 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += (
-        url(
-            r"^media/(?P<path>.*)$",
+        path(
+            "media/(?P<path>.*)",
             serve,
             {"document_root": settings.MEDIA_ROOT, "show_indexes": True},
         ),
