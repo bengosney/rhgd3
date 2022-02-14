@@ -20,7 +20,7 @@ botocore==1.23.53
     #   s3transfer
 certifi==2021.10.8
     # via requests
-charset-normalizer==2.0.11
+charset-normalizer==2.0.12
     # via requests
 coverage[toml]==5.5
     # via pytest-cov
