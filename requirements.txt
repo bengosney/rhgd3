@@ -120,7 +120,7 @@ pytest-django==4.5.2
     # via -r requirements.in
 python-dateutil==2.8.2
     # via botocore
-reportlab==3.6.6
+reportlab==3.6.7
     # via
     #   easy-thumbnails
     #   svglib
