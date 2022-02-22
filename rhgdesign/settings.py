@@ -216,3 +216,5 @@ ROLLBAR = {
 }
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
+CSRF_TRUSTED_ORIGINS = ["https://www.rhgdesign.co.uk"]
