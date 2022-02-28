@@ -12,9 +12,9 @@ attrs==21.4.0
     #   pytest
 backports-zoneinfo==0.2.1
     # via django
-boto3==1.21.7
+boto3==1.21.8
     # via -r requirements.in
-botocore==1.24.7
+botocore==1.24.8
     # via
     #   boto3
     #   s3transfer
