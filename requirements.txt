@@ -14,7 +14,7 @@ backports-zoneinfo==0.2.1
     # via django
 boto3==1.21.14
     # via -r requirements.in
-botocore==1.24.14
+botocore==1.24.15
     # via
     #   boto3
     #   s3transfer
