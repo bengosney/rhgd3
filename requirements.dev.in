@@ -1,0 +1,6 @@
+-c requirements.txt
+commitizen
+hypothesis
+pytest
+pytest-cov
+pytest-django

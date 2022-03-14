@@ -1,72 +1,65 @@
-.PHONY := install, install-dev, help, init, pre-init, postgres, postgres-down, test, pre-commit, postgres-import, dump, clean
-.DEFAULT_GOAL := install-dev
+.PHONY := install, help, init, pre-init
+.DEFAULT_GOAL := install
 
 INS=$(wildcard requirements.*.in)
 REQS=$(subst in,txt,$(INS))
-HOOKS=.git/hooks/pre-commit
-PGC_NAME=rhgd-postgres
-PG_PASSWORD=cJYuVv3uaBeP78Le
-PG_USERNAME=rhgdesign
-PG_DATABASE=rhgdesign
+HOOKS=$(.git/hooks/pre-commit)
+
 HEROKU_APP=still-caverns-78460
-DUMP_DIR=dumps
+
+DB_USER=rhgdesign
+DB_PASS=rhgdesign
+DB_NAME=rhgdesign
+DB_CONTAINER_NAME=rhgd-postgres
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-requirements.%.txt: requirements.%.in
+.envrc: runtime.txt
+	@echo layout python $(shell cat $^ | tr -d "-" | egrep -o "python[0-9]\.[0-9]+") >> $@
+	@echo export DATABASE_URL="postgres://$(DB_USER):$(DB_PASS)@localhost:5432/$(DB_NAME)" >> $@
+	@echo "Created .envrc, run make again"
+	@false
+
+requirements.%.txt: requirements.%.in requirements.txt
 	@echo "Builing $@"
-	@pip-compile -q -o $@ $^
+	@pip-compile --generate-hashes -q -o $@ $<
+	@touch $@
 
 requirements.txt: requirements.in
 	@echo "Builing $@"
-	@pip-compile -q $^
+	@pip-compile --generate-hashes -q $^
 
-install: requirements.txt ## Install production requirements
-	@echo "Installing $^"
-	@pip-sync $^
-
-install-dev: requirements.txt $(REQS) ## Install development requirements (default)
+install: requirements.txt $(REQS) ## Install development requirements
 	@echo "Installing $^"
 	@pip-sync $^
 
 $(HOOKS):
 	pre-commit install
 
-pre-commit: $(HOOKS)
-
 pre-init:
 	pip install wheel pip-tools
 
-init: pre-init install-dev pre-commit postgres-import ## Initalise a dev enviroment
+init: .envrc pre-init install $(HOOKS) ## Initalise a dev enviroment
 	@echo "Read to dev"
+	@which direnv > /dev/null || echo "direnv not found but recommended"
 
-init-no-dev: pre-init install-dev pre-commit
-
-postgres-down: ## Shutdown and remove the postgresql container
+postgres-down:
 	@echo "Stopping any excisting postgres containers"
-	@docker stop $(PGC_NAME) || true
-	@docker rm $(PGC_NAME) || true
+	@docker stop $(DB_CONTAINER_NAME) || true
+	@docker rm $(DB_CONTAINER_NAME) || true
 
-$(DUMP_DIR):
-	mkdir -p $@
-	chown -R $(shell whoami) $@
+postgres: postgres-down
+	docker run --name $(DB_CONTAINER_NAME) -p 5432:5432 -e POSTGRES_PASSWORD=$(DB_PASS) -e POSTGRES_USER=$(DB_USER) -d postgres
 
-postgres: $(DUMP_DIR) ## Start a postgresql docker container
-	docker container inspect $(PGC_NAME) 2>&1 > /dev/null || docker run --rm --name $(PGC_NAME) -v $(shell pwd)/$(DUMP_DIR):/dumps -p 5432:5432 -e POSTGRES_PASSWORD=$(PG_PASSWORD) -e POSTGRES_USER=$(PG_USERNAME) -d postgres
+latest.dump:
+	@echo "Dumping database"
+	heroku pg:backups:capture --app $(HEROKU_APP_NAME)
+	heroku pg:backups:download --app $(HEROKU_APP_NAME)
 
-postgres-import: postgres $(DUMP_DIR) ## Import the latest data dump
-	docker exec -it $(PGC_NAME) pg_restore --verbose --clean --no-acl --no-owner -h localhost -U $(PG_USERNAME) -d $(PG_DATABASE) /dumps/$(shell ls dumps | head -n 1)
-
-dump: $(DUMP_DIR) ## Take a database dump from Heroku
-	@cd $(DUMP_DIR) && \
-	echo "Creating backup" && \
-	heroku pg:backups:capture --app still-caverns-78460 && \
-	echo "Downloading backup" && \
-	heroku pg:backups:download --app still-caverns-78460
+restoredb: latest.dump
+	@echo "Restoring database"
+	docker exec -i $(DB_CONTAINER_NAME) /bin/bash -c "pg_restore --verbose --clean --no-acl --no-owner -h localhost -U $(DB_USER) -d $(DB_NAME)" < $?
 
 clean:
-	find . -name "*.pyc" -exec rm -f {} \;
-
-test:
-	pytest --cov=. .
+	rm -f latest.dump

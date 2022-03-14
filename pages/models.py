@@ -69,7 +69,7 @@ class node(PolymorphicMPTTModel, statusMixin):
             return "/"
 
         try:
-            url = reverse("pages:%s" % self.__class__.__name__.lower(), kwargs={"slug": self.slug})
+            url = reverse(f"pages:{self.__class__.__name__.lower()}", kwargs={"slug": self.slug})
         except BaseException:
             url = reverse("pages:page", kwargs={"slug": self.slug})
 
@@ -79,7 +79,7 @@ class node(PolymorphicMPTTModel, statusMixin):
         classes = [self.__class__.__name__]
 
         if self.nav_icon:
-            classes.append("icon-{}".format(str(self.nav_icon)))
+            classes.append(f"icon-{str(self.nav_icon)}")
 
         if self.nav_icon_only:
             classes.append("icon-only")
@@ -112,11 +112,11 @@ class Empty(node):
         verbose_name_plural = _("Empty Items")
 
     def __unicode__(self):
-        return "%s - Empty Node" % self.title
+        return f"{self.title} - Empty Node"
 
     @property
     def url(self):
-        return "#%s" % self.slug
+        return f"#{self.slug}"
 
 
 class ExternalLink(node):
@@ -208,7 +208,7 @@ class HomePageHeader(models.Model):
         return self.strapline
 
     def admin_image(self):
-        return '<img src="%s" height="75"/>' % self.image.url
+        return f'<img src="{self.image.url}" height="75"/>'
 
     admin_image.allow_tags = True
 
