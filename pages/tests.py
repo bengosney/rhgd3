@@ -69,7 +69,7 @@ class PageMethodTests(TestCase):
         page = Page(title=expected)
         page.save()
 
-        self.assertEqual(page.url, "/%s/" % page.slug)
+        self.assertEqual(page.url, f"/{page.slug}/")
 
     @given(sane_text())
     def test_str(self, expected):
@@ -89,7 +89,7 @@ class EmptyNodeMethodTests(TestCase):
         empty = Empty(title=expected)
         empty.save()
 
-        self.assertEqual(empty.url, "#%s" % empty.slug)
+        self.assertEqual(empty.url, f"#{empty.slug}")
 
 
 class ContactSubmissionMethodTest(TestCase):

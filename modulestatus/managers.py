@@ -26,7 +26,6 @@ class statusDateRangeManager(statusManager):
             "published_to__gte": datetime.now().date(),
         }
 
-
         return super().get_queryset().filter(**filter)
 
 
@@ -37,7 +36,6 @@ try:
     class PolymorphicMPTTStatusManager(PolymorphicMPTTModelManager):
         def get_queryset(self):
             return super().get_queryset().filter(status=ModelStatus.LIVE_STATUS)
-
 
 except ImportError:
     pass

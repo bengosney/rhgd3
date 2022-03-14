@@ -1,6 +1,8 @@
+Django
+Pillow
+Werkzeug
 boto3
 dj-database-url
-Django
 django-admin-sortable2
 django-appconf
 django-ckeditor
@@ -16,14 +18,8 @@ django-tag-parser
 django-vanilla-views
 easy-thumbnails
 gunicorn
-hypothesis
-Pillow
 psycopg2-binary
 requests
 rollbar
 sorl-thumbnail
 whitenoise
-pytest
-pytest-django
-pytest-cov
-Werkzeug

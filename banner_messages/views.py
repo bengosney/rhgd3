@@ -16,6 +16,6 @@ def dismiss(request, slug):
     except ObjectDoesNotExist:
         pass
 
-    url = request.META.get("HTTP_REFERER", "/")
+    url = request.headers.get("Referer", "/")
 
     return HttpResponseRedirect(url)
