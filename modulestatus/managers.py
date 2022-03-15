@@ -22,9 +22,10 @@ class statusDateManager(statusManager):
 class statusDateRangeManager(statusManager):
     def get_queryset(self) -> QuerySet:
         filter = {
-            "published_from__lte": datetime.today().date(),
+            "published_from__lte": datetime.now().date(),
             "published_to__gte": datetime.now().date(),
         }
+
 
         return super().get_queryset().filter(**filter)
 
