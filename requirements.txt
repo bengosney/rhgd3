@@ -385,9 +385,9 @@ webencodings==0.5.1 \
     # via
     #   cssselect2
     #   tinycss2
-werkzeug==2.0.3 \
-    --hash=sha256:1421ebfc7648a39a5c58c601b154165d05cf47a3cd0ccb70857cbdacf6c8f2b8 \
-    --hash=sha256:b863f8ff057c522164b6067c9e28b041161b4be5ba4d0daceeaa50a163822d3c
+werkzeug==2.1.0 \
+    --hash=sha256:094ecfc981948f228b30ee09dbfe250e474823b69b9b1292658301b5894bbf08 \
+    --hash=sha256:9b55466a3e99e13b1f0686a66117d39bda85a992166e0a79aedfcf3586328f7a
     # via -r requirements.in
 whitenoise==6.0.0 \
     --hash=sha256:08c42bc535f9777eea1a599289d9433f081921f97887eaf6f559446b2a080374 \
