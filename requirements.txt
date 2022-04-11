@@ -57,9 +57,9 @@ django-appconf==1.0.5 \
     #   -r requirements.in
     #   django-image-cropping
     #   django-imagekit
-django-ckeditor==6.3.0 \
-    --hash=sha256:b5c03d77b9fe848bf12520512a82d07533afa8678040731b1d4d86c1dcea8344 \
-    --hash=sha256:d04f350f4a200c2a0f96307fc8827bd4e87af5694fb12d53189ba92025b2da37
+django-ckeditor==6.3.2 \
+    --hash=sha256:ce0c806e40172dbea35330a207632701a6d418314ae8c8fa140fd277d9322c96 \
+    --hash=sha256:e1580105c9ff6fcaca6345acda1dc01416733027c61c6387e02dd5960b8ade3c
     # via -r requirements.in
 django-extensions==3.1.5 \
     --hash=sha256:28e1e1bf49f0e00307ba574d645b0af3564c981a6dfc87209d48cb98f77d0b1a \
