@@ -8,9 +8,9 @@ asgiref==3.5.0 \
     --hash=sha256:2f8abc20f7248433085eda803936d98992f1343ddb022065779f37c5da0181d0 \
     --hash=sha256:88d59c13d634dcffe0510be048210188edd79aeccb6a6c9028cdad6f31d730a9
     # via django
-boto3==1.22.0 \
-    --hash=sha256:733a651e76b37b10c1f7ccba53deae43e47ada8ae64128042632373c5d266cf7 \
-    --hash=sha256:75310f5bb2af8f51f15f790d95dc4a4725bcec286f83458980ee2c3286cc0a03
+boto3==1.22.1 \
+    --hash=sha256:096ff3255c1327f14e63d29d7bed4900cc350d42916498c5cc37a90a7051d3dc \
+    --hash=sha256:c7c996aa06a754e3e5cc5c64c840f02314333bdf6fe33054de9083be56aa6521
     # via -r requirements.in
 botocore==1.25.1 \
     --hash=sha256:33bb9659d4327f4f3aed6d6aee0fa467ffe635eee2a091cb6befe66e8956f234 \
