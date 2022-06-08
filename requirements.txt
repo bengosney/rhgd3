@@ -344,8 +344,9 @@ requests==2.27.1 \
     # via
     #   -r requirements.in
     #   rollbar
-rollbar==0.16.2 \
-    --hash=sha256:aa3b570062dd8dfb0e11537ba858f9e1633a604680e062a525434b8245540f87
+rollbar==0.16.3 \
+    --hash=sha256:02313dfc60710ec736ab033d0f8c969d857a8b991cd67e0c1a91620e8a04ede2 \
+    --hash=sha256:f06e23b36d7d1b547f32f287da9367b9bf53319f611da0ec9e891859507ac94e
     # via -r requirements.in
 s3transfer==0.6.0 \
     --hash=sha256:06176b74f3a15f61f1b4f25a1fc29a4429040b7647133a463da8fa5bd28d5ecd \
