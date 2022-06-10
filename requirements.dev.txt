@@ -69,9 +69,9 @@ decli==0.5.2 \
     --hash=sha256:d3207bc02d0169bf6ed74ccca09ce62edca0eb25b0ebf8bf4ae3fb8333e15ca0 \
     --hash=sha256:f2cde55034a75c819c630c7655a844c612f2598c42c21299160465df6ad463ad
     # via commitizen
-hypothesis==6.47.0 \
-    --hash=sha256:76a7d16f78b5691db34ef87fa677d020dd86189f6b748adf801088743b66c889 \
-    --hash=sha256:dd88c57f45032fc3d84596e426d8e3d67f88eda2d8a2d96a5697def036a7e0c7
+hypothesis==6.47.1 \
+    --hash=sha256:4ad26c5d434171ffc02aba569dd52255573d615554c062bc30734dbe6f318c61 \
+    --hash=sha256:69978811f1d9c19710c7d2bf8233dc43c80efa964251b72efbe8274044e073b4
     # via -r requirements.dev.in
 iniconfig==1.1.1 \
     --hash=sha256:011e24c64b7f47f6ebd835bb12a743f2fbe9a26d4cecaa7f53bc4f35ee9da8b3 \
