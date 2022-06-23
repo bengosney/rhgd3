@@ -47,9 +47,9 @@ django==4.0.5 \
     #   django-polymorphic
     #   django-storages
     #   easy-thumbnails
-django-admin-sortable2==2.0.5 \
-    --hash=sha256:cc74dc9cdef2271119a2e20991a47aa2fc68b5e6a7063177758edcc1a7ee6409 \
-    --hash=sha256:e9bc064e25ea3e2747b5d35fe56b7d3a8283e1181bf651496b09f960a7480a82
+django-admin-sortable2==2.1 \
+    --hash=sha256:106f791a933a7b7f9812881e23fa23e3afdaeb213a17f82beafc491c28195b21 \
+    --hash=sha256:8d02e9d36034125ae94c7072944960657b8d0160fffd0981dedbb8a5a74e82f2
     # via -r requirements.in
 django-appconf==1.0.5 \
     --hash=sha256:ae9f864ee1958c815a965ed63b3fba4874eec13de10236ba063a788f9a17389d \
