@@ -14,17 +14,19 @@ attrs==22.1.0 \
     # via
     #   hypothesis
     #   pytest
-chardet==5.0.0 \
-    --hash=sha256:0368df2bfd78b5fc20572bb4e9bb7fb53e2c094f60ae9993339e8671d0afb8aa \
-    --hash=sha256:d3e64f022d254183001eccc5db4040520c0f23b1a3f33d6413e099eb7f126557
-    # via commitizen
+charset-normalizer==2.1.0 \
+    --hash=sha256:5189b6f22b01957427f35b6a08d9a0bc45b46d3788ef5a92e978433c7a35f8a5 \
+    --hash=sha256:575e708016ff3a5e3681541cb9d79312c416835686d054a23accb873b254f413
+    # via
+    #   -c requirements.txt
+    #   commitizen
 colorama==0.4.5 \
     --hash=sha256:854bf444933e37f5824ae7bfc1e98d5bce2ebe4160d46b5edf346a89358e99da \
     --hash=sha256:e6c6b4334fc50988a639d9b98aa429a0b57da6e17b9a44f0451f930b6967b7a4
     # via commitizen
-commitizen==2.29.3 \
-    --hash=sha256:6a332f7b6732d307dd28fbe759b13434f093b9ffe599a71dce1d09089f158dcc \
-    --hash=sha256:fc9e960a082319731b38790a7100571db1c0bcea97ac3d1b5dad007215639815
+commitizen==2.29.4 \
+    --hash=sha256:69916029a699b059bccf3ea425034ac2ac17c784d12f43f274f57fa25469ab32 \
+    --hash=sha256:8ec3b8edd461165bbe50b8c98de9cb96c1e4201afc6a13c0d1b2948eeb3eb3a6
     # via -r requirements.dev.in
 coverage[toml]==6.3.2 \
     --hash=sha256:03e2a7826086b91ef345ff18742ee9fc47a6839ccd517061ef8fa1976e652ce9 \
