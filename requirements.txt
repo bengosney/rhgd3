@@ -94,9 +94,9 @@ django-polymorphic-tree==2.1 \
     --hash=sha256:6e2994ea0d96b0c9e4191e57998e54fcbfafd4362ed2afc877ef61a2548d39f0 \
     --hash=sha256:a6d40c2ef350c5a50bd83727ca8cba85088890a7a08a106caeb3c5dc5ae072aa
     # via -r requirements.in
-django-storages==1.13 \
-    --hash=sha256:3ef9dd5a2ac7221b571aa32f72a94a542b6b03fbd393e1c18e64d2a4006bfddf \
-    --hash=sha256:d4fed98bbfb5347096ddfac2a6665d5133c788b9ec32c156ec5f7fb02ae57335
+django-storages==1.13.1 \
+    --hash=sha256:3540b45618b04be2c867c0982e8d2bd8e34f84dae922267fcebe4691fb93daf0 \
+    --hash=sha256:b3d98ecc09f1b1627c2b2cf430964322ce4e08617dbf9b4236c16a32875a1e0b
     # via -r requirements.in
 django-tag-parser==3.2 \
     --hash=sha256:903cd4bf3692c8c060770ca2b9d6e74e4ee52d6078308852acffe1ef4a49e0f7 \
