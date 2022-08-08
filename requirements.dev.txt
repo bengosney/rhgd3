@@ -224,9 +224,9 @@ tomli==2.0.1 \
     # via
     #   coverage
     #   pytest
-tomlkit==0.11.1 \
-    --hash=sha256:1c5bebdf19d5051e2e1de6cf70adfc5948d47221f097fcff7a3ffc91e953eaf5 \
-    --hash=sha256:61901f81ff4017951119cd0d1ed9b7af31c821d6845c8c477587bbdcd5e5854e
+tomlkit==0.11.2 \
+    --hash=sha256:69e0675671a2eed1c08a53f342c955c4ead5d373a10f756219bf39f3d4f0018a \
+    --hash=sha256:d1b49c3e460f5910b22d799b13513504acb4f5fcaee01660ee66f07bd45a271c
     # via commitizen
 typing-extensions==4.3.0 \
     --hash=sha256:25642c956049920a5aa49edcdd6ab1e06d7e5d467fc00e0506c44ac86fbfca02 \
