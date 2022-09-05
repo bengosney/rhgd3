@@ -79,9 +79,9 @@ exceptiongroup==1.0.0rc9 \
     --hash=sha256:2e3c3fc1538a094aab74fad52d6c33fc94de3dfee3ee01f187c0e0c72aec5337 \
     --hash=sha256:9086a4a21ef9b31c72181c77c040a074ba0889ee56a7b289ff0afb0d97655f96
     # via hypothesis
-hypothesis==6.54.4 \
-    --hash=sha256:469125235b4fdd6b6a4b6a6fa13e528d3e8de4dbd3bd9236b03323fefa3a9b32 \
-    --hash=sha256:ee42fe4d2ff96c49910085780d6b8f34cbcf4c44427616e22833869d451116bb
+hypothesis==6.54.5 \
+    --hash=sha256:8a9056825695f415bfad4e808ae719fc01383a9ab659775319724365afcc7ec7 \
+    --hash=sha256:d8d2e18139be18e5c95593f1e2d87dbcd21534a32022a1db6e8ac2d458ee1d1a
     # via -r requirements.dev.in
 iniconfig==1.1.1 \
     --hash=sha256:011e24c64b7f47f6ebd835bb12a743f2fbe9a26d4cecaa7f53bc4f35ee9da8b3 \
