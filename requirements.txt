@@ -59,9 +59,9 @@ django-ckeditor==6.5.1 \
     --hash=sha256:1321f24df392f30698513930ce5c9f6d899f9bd0ef734c3b64fe936d809e11b3 \
     --hash=sha256:57cd8fb7cd150adca354cd4e5c35a743fadaab7073f957d2b7167f0d9fe1fcaf
     # via -r requirements.in
-django-extensions==3.2.0 \
-    --hash=sha256:4c234a7236e9e41c17d9036f6dae7a3a9b212527105b8a0d24b2459b267825f0 \
-    --hash=sha256:7dc7cd1da50d83b76447a58f5d7e5c8e6cd83f21e9b7e5f97e6b644f4d4e21a6
+django-extensions==3.2.1 \
+    --hash=sha256:2a4f4d757be2563cd1ff7cfdf2e57468f5f931cc88b23cf82ca75717aae504a4 \
+    --hash=sha256:421464be390289513f86cb5e18eb43e5dc1de8b4c27ba9faa3b91261b0d67e09
     # via -r requirements.in
 django-image-cropping==1.7 \
     --hash=sha256:429ad2c3ccad5ddeb079fbee24dc1536105b3e9d30beb53d1446fd560da04d5b \
