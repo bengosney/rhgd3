@@ -75,9 +75,9 @@ decli==0.5.2 \
     --hash=sha256:d3207bc02d0169bf6ed74ccca09ce62edca0eb25b0ebf8bf4ae3fb8333e15ca0 \
     --hash=sha256:f2cde55034a75c819c630c7655a844c612f2598c42c21299160465df6ad463ad
     # via commitizen
-exceptiongroup==1.0.0 \
-    --hash=sha256:2ac84b496be68464a2da60da518af3785fff8b7ec0d090a581604bc870bdee41 \
-    --hash=sha256:affbabf13fb6e98988c38d9c5650e701569fe3c1de3233cfb61c5f33774690ad
+exceptiongroup==1.0.1 \
+    --hash=sha256:4d6c0aa6dd825810941c792f53d7b8d71da26f5e5f84f20f9508e8f2d33b140a \
+    --hash=sha256:73866f7f842ede6cb1daa42c4af078e2035e5f7607f0e2c762cc51bb31bbe7b2
     # via
     #   hypothesis
     #   pytest
