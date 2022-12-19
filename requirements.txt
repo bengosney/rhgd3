@@ -108,9 +108,9 @@ django-vanilla-views==3.0.0 \
     --hash=sha256:ab49c4e410f00e04a89eff0403aa14f098c0ba251657deff7a2d5c3ebe23602f \
     --hash=sha256:b65f27b8d5de53f695a397438337be882a6c7b5d8d30333a4cf98c9239fe0b86
     # via -r requirements.in
-easy-thumbnails==2.8.3 \
-    --hash=sha256:8a3ec61bb8c72fac7f75e811a96e3cd7942ac89cab55ab16549d6d2ce9cdeaa5 \
-    --hash=sha256:fc697845103b65279df6c5c0834b0c165bdef07edd6220a06a7a05ca934d582c
+easy-thumbnails==2.8.4 \
+    --hash=sha256:6aa477ce0f73beda293b34c6314a3f2b78c1b45ccae9ad9faa49e39dc7f34369 \
+    --hash=sha256:6ba566bec318ee6834700899661cc14c81acfc53556537bca18660b29b866e57
     # via -r requirements.in
 gunicorn==20.1.0 \
     --hash=sha256:9dcc4547dbb1cb284accfb15ab5667a0e5d1881cc443e0677b4882a4067a807e \
