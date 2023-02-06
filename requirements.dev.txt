@@ -81,9 +81,9 @@ exceptiongroup==1.1.0 \
     # via
     #   hypothesis
     #   pytest
-hypothesis==6.66.0 \
-    --hash=sha256:2fb334ab068dc6e7c02d49a1c694f66bd1f681197eeed94406650a59eebef870 \
-    --hash=sha256:f3633335bd6deb856c7aaeddaf48247b2933856d407bd1343b49da84d3263181
+hypothesis==6.67.1 \
+    --hash=sha256:7abb4361d796ae6432d1c0b22a514210a2a19cb0d85efca8463e619a80f3132c \
+    --hash=sha256:947839d8b5fd24d9b4d1e41ee10f7285d023f49f3b318519bf110fa9e5f3154e
     # via -r requirements.dev.in
 iniconfig==2.0.0 \
     --hash=sha256:2d91e135bf72d31a410b17c16da610a82cb55f6b0477d1a902134b24a455b8b3 \
