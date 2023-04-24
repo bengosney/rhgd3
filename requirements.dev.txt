@@ -4,9 +4,9 @@
 #
 #    pip-compile --generate-hashes --output-file=requirements.dev.txt requirements.dev.in
 #
-argcomplete==2.0.6 \
-    --hash=sha256:6c2170b3e0ab54683cb28d319b65261bde1f11388be688b68118b7d281e34c94 \
-    --hash=sha256:dc33528d96727882b576b24bc89ed038f3c6abbb6855ff9bb6be23384afff9d6
+argcomplete==2.1.2 \
+    --hash=sha256:4ba9cdaa28c361d251edce884cd50b4b1215d65cdc881bd204426cdde9f52731 \
+    --hash=sha256:fc82ef070c607b1559b5c720529d63b54d9dcf2dcfc2632b10e6372314a34457
     # via commitizen
 attrs==23.1.0 \
     --hash=sha256:1f28b4522cdc2fb4256ac1a020c78acf9cba2c6b461ccd2c126f3aa8e8335d04 \
