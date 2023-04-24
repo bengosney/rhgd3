@@ -22,9 +22,9 @@ colorama==0.4.6 \
     --hash=sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44 \
     --hash=sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6
     # via commitizen
-commitizen==2.42.1 \
-    --hash=sha256:eac18c7c65587061aac6829534907aeb208405b8230bfd35ec08503c228a7f17 \
-    --hash=sha256:fad7d37cfae361a859b713d4ac591859d5ca03137dd52de4e1bd208f7f45d5dc
+commitizen==3.0.1 \
+    --hash=sha256:08554057f962224940a6e50f5c69b9e28826c5bc8d844bb5822d8ff6e8fdd4e4 \
+    --hash=sha256:ca917109412afcf21fd95831b01b444133764f337db1cbd9e2cf33ebaf2f8b2f
     # via -r requirements.dev.in
 coverage[toml]==6.3.2 \
     --hash=sha256:03e2a7826086b91ef345ff18742ee9fc47a6839ccd517061ef8fa1976e652ce9 \
@@ -83,6 +83,10 @@ hypothesis==6.72.2 \
     --hash=sha256:83224b49c8320fca3fadcd5b6041c5311f59fdf4190d3819a783869f4720b690 \
     --hash=sha256:a3c6003c45e825a9c5f7b910c0b4a0522d7e6302f9616b3d723df3f6129a18ca
     # via -r requirements.dev.in
+importlib-metadata==4.13.0 \
+    --hash=sha256:8a8a81bcf996e74fee46f0d16bd3eaa382a7eb20fd82445c3ad11f4090334116 \
+    --hash=sha256:dd0173e8f150d6815e098fd354f6414b0f079af4644ddfe90c71e2fc6174346d
+    # via commitizen
 iniconfig==2.0.0 \
     --hash=sha256:2d91e135bf72d31a410b17c16da610a82cb55f6b0477d1a902134b24a455b8b3 \
     --hash=sha256:b6a85871a79d2e3b22d2d1b94ac2824226a63c6b741c88f7ae975f18b6778374
@@ -221,13 +225,11 @@ tomlkit==0.11.7 \
     --hash=sha256:5325463a7da2ef0c6bbfefb62a3dc883aebe679984709aee32a317907d0a8d3c \
     --hash=sha256:f392ef70ad87a672f02519f99967d28a4d3047133e2d1df936511465fbb3791d
     # via commitizen
-typing-extensions==4.5.0 \
-    --hash=sha256:5cb5f4a79139d699607b3ef622a1dedafa84e115ab0024e0d9c044a9479ca7cb \
-    --hash=sha256:fb33085c39dd998ac16d1431ebc293a8b3eedd00fd4a32de0ff79002c19511b4
-    # via
-    #   -c requirements.txt
-    #   commitizen
 wcwidth==0.2.6 \
     --hash=sha256:795b138f6875577cd91bba52baf9e445cd5118fd32723b460e30a0af30ea230e \
     --hash=sha256:a5220780a404dbe3353789870978e472cfe477761f06ee55077256e509b156d0
     # via prompt-toolkit
+zipp==3.15.0 \
+    --hash=sha256:112929ad649da941c23de50f356a2b5570c954b65150642bccdd66bf194d224b \
+    --hash=sha256:48904fc76a60e542af151aded95726c1a5c34ed43ab4134b597665c86d7ad556
+    # via importlib-metadata
