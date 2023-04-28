@@ -22,9 +22,9 @@ colorama==0.4.6 \
     --hash=sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44 \
     --hash=sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6
     # via commitizen
-commitizen==3.1.0 \
-    --hash=sha256:b09999c2a411ec5e9dbbb40aca43cff355e4a3da5f3dca69fbaed7a87d1559c2 \
-    --hash=sha256:cfd0d8f6a2259bd52b42f0dbbb8de171110104af89884b844e4ce30668f82c7d
+commitizen==3.1.1 \
+    --hash=sha256:337d721555b66f803d60a0b0bafe0d3cf68a584b1f85ef0c43c45d279dc6737b \
+    --hash=sha256:7ea8265a56f16df1bbb78ca4af3f162689437548d14304d10815b4c6da4dcda4
     # via -r requirements.dev.in
 coverage[toml]==6.3.2 \
     --hash=sha256:03e2a7826086b91ef345ff18742ee9fc47a6839ccd517061ef8fa1976e652ce9 \
