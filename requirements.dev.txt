@@ -79,9 +79,9 @@ exceptiongroup==1.1.1 \
     # via
     #   hypothesis
     #   pytest
-hypothesis==6.75.2 \
-    --hash=sha256:29fee1fabf764eb021665d20e633ef7ba931c5841de20f9ff3e01e8a512d6a4d \
-    --hash=sha256:50c270b38d724ce0fefa71b8e3511d123f7a31a9af9ea003447d4e1489292fbc
+hypothesis==6.75.3 \
+    --hash=sha256:15cdadb80a7ac59087581624d266a4fb585b5cce9b7f88f506c481a9f0e583f6 \
+    --hash=sha256:a12bf34c29bd22757d20edf93f95805978ed0ffb8d0b22dbadc890a79dc9baa8
     # via -r requirements.dev.in
 importlib-metadata==6.6.0 \
     --hash=sha256:43dd286a2cd8995d5eaef7fee2066340423b818ed3fd70adf0bad5f1fac53fed \
