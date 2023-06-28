@@ -71,9 +71,9 @@ django-imagekit==4.1.0 \
     --hash=sha256:87e36f8dc1d8745647881f4366ef4965225f048042dacebbee0dcb87425defef \
     --hash=sha256:e559aeaae43a33b34f87631a9fa5696455e4451ffa738a42635fde442fedac5c
     # via -r requirements.in
-django-js-asset==2.0.0 \
-    --hash=sha256:86f9f300d682537ddaf0487dc2ab356581b8f50c069bdba91d334a46e449f923 \
-    --hash=sha256:adc1ee1efa853fad42054b540c02205344bb406c9bddf87c9e5377a41b7db90f
+django-js-asset==2.1.0 \
+    --hash=sha256:36a3a4dd6e9efc895fb127d13126020f6ec1ec9469ad42878d42143f22495d90 \
+    --hash=sha256:be6f69ae5c4865617aa7726c48eddb64089a1e7d4ea7d22a35a3beb8282020f6
     # via
     #   -r requirements.in
     #   django-ckeditor
