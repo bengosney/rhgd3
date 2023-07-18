@@ -112,9 +112,9 @@ easy-thumbnails==2.8.5 \
     --hash=sha256:7e4e912609fc9b60b3a1fef6557ec15ddf9c4f946267a92e6920dfd4dd765e35 \
     --hash=sha256:97f5a5278d8b6c1f5b1b7473f3737d29b18f5c1159cbdf0ab28674fdac2f8c87
     # via -r requirements.in
-gunicorn==21.0.0 \
-    --hash=sha256:d01d18d61ba58fa1e3a1ae4f15c77989a95478edbaaf95f3e3ff92a2b69d1ff2 \
-    --hash=sha256:f3a52f282306059b3a39761559c086d326449a2d67eb8ab224f057caa7cd1cff
+gunicorn==21.1.0 \
+    --hash=sha256:11fc98ea214a5845f614891e8c90b0211fbe595e677d204d7cd7d80f6f348891 \
+    --hash=sha256:37ced4b6622f263a6483eb7cbe9606df81afd57dc0fa464883600624790271c5
     # via -r requirements.in
 idna==3.4 \
     --hash=sha256:814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4 \
