@@ -78,9 +78,9 @@ django-js-asset==2.1.0 \
     #   -r requirements.in
     #   django-ckeditor
     #   django-mptt
-django-mptt==0.14.0 \
-    --hash=sha256:2c92a2b1614c53086278795ccf50580cf1f9b8564f3ff03055dd62bab5987711 \
-    --hash=sha256:d9a87433ab0e4f35247c6f6d5a93ace6990860a4ba8796f815d185f773b9acfc
+django-mptt==0.15.0 \
+    --hash=sha256:0df19d5a55f34e73df58ee03fbe0d91807493de4bd3a09f6eb00fc62920035d9 \
+    --hash=sha256:2574c014b102a41c642be5921f59356b8437fc83c9866d97644c6a0c5dc8ccc1
     # via
     #   -r requirements.in
     #   django-polymorphic-tree
