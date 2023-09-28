@@ -172,8 +172,9 @@ packaging==23.1 \
     --hash=sha256:994793af429502c4ea2ebf6bf664629d07c1a9fe974af92966e4b8d2df7edc61 \
     --hash=sha256:a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f
     # via gunicorn
-pilkit==2.0 \
-    --hash=sha256:ddb30c2f0198a147e56b151476c3bb9fe045fbfd5b0a0fa2a3148dba62d1559f
+pilkit==3.0 \
+    --hash=sha256:f6719e8cc0482e5447f5cb94f18b949d8e604ea9673a9b019c74d41b779e4eab \
+    --hash=sha256:fe1707b0411a1d0cbf9ad3986779fa5a346cec4582a188740924aa39f504d117
     # via django-imagekit
 pillow==10.0.1 \
     --hash=sha256:0462b1496505a3462d0f35dc1c4d7b54069747d65d00ef48e736acda2c8cbdff \
@@ -233,6 +234,7 @@ pillow==10.0.1 \
     # via
     #   -r requirements.in
     #   easy-thumbnails
+    #   pilkit
 psycopg2-binary==2.9.7 \
     --hash=sha256:00d8db270afb76f48a499f7bb8fa70297e66da67288471ca873db88382850bf4 \
     --hash=sha256:024eaeb2a08c9a65cd5f94b31ace1ee3bb3f978cd4d079406aef85169ba01f08 \
