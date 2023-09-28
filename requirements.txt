@@ -67,9 +67,9 @@ django-image-cropping==1.7 \
     --hash=sha256:429ad2c3ccad5ddeb079fbee24dc1536105b3e9d30beb53d1446fd560da04d5b \
     --hash=sha256:971d1a92c9ef14f1bf95996dd4eeed0a00dbb2221bfa762290d9525696243232
     # via -r requirements.in
-django-imagekit==4.1.0 \
-    --hash=sha256:87e36f8dc1d8745647881f4366ef4965225f048042dacebbee0dcb87425defef \
-    --hash=sha256:e559aeaae43a33b34f87631a9fa5696455e4451ffa738a42635fde442fedac5c
+django-imagekit==5.0.0 \
+    --hash=sha256:a8e77ed6549751026a51f961bb2cd5fda739be691496da8eecbe68ffb966c261 \
+    --hash=sha256:aae9f74a8e9b6ceb5d15f7d8e266302901e76d9f532c78bd5135cb0fa206a6b0
     # via -r requirements.in
 django-js-asset==2.1.0 \
     --hash=sha256:36a3a4dd6e9efc895fb127d13126020f6ec1ec9469ad42878d42143f22495d90 \
@@ -317,7 +317,6 @@ six==1.16.0 \
     --hash=sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926 \
     --hash=sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254
     # via
-    #   django-imagekit
     #   python-dateutil
     #   rollbar
 sorl-thumbnail==12.9.0 \
